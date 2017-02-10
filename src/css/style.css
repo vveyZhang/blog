@@ -1,0 +1,642 @@
+@charset "utf-8";
+/*登录页面*/
+#login{width: 500px;margin: 70px auto 0px;background: #ffffff;
+    position: relative;
+
+}
+#login input{
+    height: 39px;
+    line-height: 39px;
+    line-height: 39px\9;
+    font-size: 16px;
+    font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
+    width: 340px;
+    padding: 0px 10px;
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+#login input:focus{
+    border: none;
+    border-bottom: 2px solid #37cb58;
+    color:#223318;
+}
+.user-login-warp{
+   margin: 0px auto;
+    width: 340px;
+}
+.username-tip{
+    background: #ea5a4e;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.username-tip p{
+    color: #ffffff;
+    font-size: 12px;
+    padding: 5px 0px;
+    line-height: 1;
+    text-align: center;
+}
+.login-btn{
+    height: 50px;
+    cursor: pointer;
+    background: #37cb58;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+
+}
+.user-password{
+    margin-top: 20px;
+}
+.user-login-title{
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    padding: 0px 80px;
+    border-bottom: 1px solid #ccc;
+    height: 80px;
+    margin-bottom: 30px;
+}
+.user-login-title p{
+    font-size: 30px;
+    color: #223318;
+    line-height: 80px;
+}
+.register-tip{
+    border-top: 1px solid #cccccc;
+    background:#f6f9f9;
+    height: 55px;
+    line-height: 55px;
+    color: #223318;
+    text-align: center;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.user-login{
+    border-radius: 6px;
+    box-shadow:0 1px 6px 0 rgba(0,0,0,.12),0 1px 6px 0 rgba(0,0,0,.12) ;
+}
+/*后台管理*/
+.management-body{
+    background: #1f2124;
+    display: flex;
+    flex-flow: row;
+}
+.management-left{
+    width:200px;
+}
+.main-title{
+    padding: 25px 30px;
+    height: 25px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 8px;
+    line-height: 25px;
+    font-size: 28px;
+}
+.management-logo{
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    overflow: hidden;
+    position: relative;
+    margin: 25px;
+}
+.management-logo-bg{
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    background:rgba(4, 197, 3,0.25);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+.management-logo-bg:hover{
+    background:rgba(179, 79, 32, 0.17);
+}
+.management-nav{
+    margin-top: 30px;
+}
+.management-nav li a{
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 30px 50px;
+    height: 20px;
+    line-height: 20px;
+}
+.management-nav li a:hover,.management-nav li a.cur{
+    border-left: 8px solid #13895F;
+    background: #18191b;
+}
+.management-right{
+    flex: 1;
+    background: #ffffff;
+    min-width: 600px;
+
+}
+.article-check{
+    float: left;
+    display: inline-block;
+    height: 15px;
+}
+.article-tool-check{
+    margin: 12.5px 0px 12.5px 15px;
+}
+.article-list{
+    background: #ffffff;
+    margin: 40px 50px;
+}
+.article-tool{
+    height: 40px;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 10px;
+}
+.article-select{
+    float: left;
+    margin-left: 35px;
+    margin-top: 5px;
+}
+.delete-btn{
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    float: right;
+    margin: 8px 15px;
+    background: url("../images/delete-icon.png") no-repeat;
+}
+
+.article-list-row{
+    padding: 0px 15px;
+    height: 40px;
+    border-bottom: 1px solid #dedede;
+}
+.article-item-time{
+    float: right;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    text-align: right;
+    overflow: hidden;
+    color: #999999;
+}
+.article-item-delete{
+    width: 100px;
+    float: right;
+    text-align: right;
+    color: #333333;
+    line-height: 40px;
+    height: 40px;
+    overflow: hidden;
+    font-size: 14px;
+    cursor: pointer;
+}
+.article-item-delete:hover{
+    color: #f12020;
+}
+.article-item-title{
+    margin-left: 100px;
+    margin-right: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 40px;
+    height: 40px;
+    font-size: 14px;
+}
+.article-item-title a{
+    color: #333;
+    display: block;
+    width: 70%;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.article-item-title .title-type{
+    width: 25%;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333333;
+    display: block;
+}
+.article-item-title:hover a{
+    color: #f12020;
+}
+
+.article-item-check{
+    margin: 12.5px auto;
+}
+.article-list-content{
+    margin-top: 30px;
+}
+.article-page-quick,.article-page-number,.article-page-number a{
+    display: inline-block;
+    vertical-align: top;
+}
+.article-page-quick,.article-page-number a{
+    height: 30px;
+    border: 1px solid #dedede;
+    text-align: center;
+    line-height: 30px;
+    color: #666666;
+    font-size: 13px;
+    margin: 0px 3px;
+}
+.article-page-quick:hover,.article-page-number a:hover{
+    color: #f12020;
+    border: 1px solid #f12020;
+}
+.article-page-number a.cur{
+    border: 1px solid #f12020;
+}
+.article-page-quick{
+    width: 70px;
+    cursor: pointer;
+}
+.article-page-number a{
+    width: 30px;
+}
+.article-list-page{
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.articleDetail-tool-btn{
+    float: right;
+    line-height: 60px;
+    cursor: pointer;
+    margin-right: 30px;
+    font-size: 15px;
+    color: #333333;
+    height: 60px;
+}
+.articleDetail-tool-btn span{
+    margin: 0px 5px;
+}
+.articleDetail-tool-btn span:hover{
+    text-decoration: underline;
+}
+.articleDetail-main{
+    position: relative;
+}
+.articleDetail-tool{
+    height: 60px;
+    position: absolute;
+    top: 0px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,.4);
+    left: 0px;
+    width: 100%;
+    background: #ffffff;
+}
+.articleDetail-title{
+    margin: 0px 100px;
+    line-height: 60px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: normal;
+    color: rgb(126, 136, 139);
+    text-align: center;
+}
+.articleDetail-content{
+    min-height: 400px;
+    padding: 60px 45px;
+    background: #ffffff;
+    padding-top: 120px;
+}
+.ArticleEditor{
+    background: #ffffff;
+}
+.ArticleEditor-title{
+    text-align: center;
+    padding-top: 40px;
+}
+.ArticleEditor-title input{
+    vertical-align: top;
+    width: 400px;
+    border-bottom: 1px solid #dedede;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
+    font-weight: normal;
+}
+.ArticleEditor-title input:focus{
+    border-bottom: 2px solid #000;
+}
+.ArticleEditor-content{
+    padding: 40px 50px;
+    min-height: 300px;
+}
+.ArticleEditor-class input{
+    width: 320px;
+}
+.article-submit{
+    height: 38px;
+    width: 120px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 38px;
+    margin: 30px auto;
+    border: 1px solid #dedede;
+    cursor: pointer;
+    color: #333;
+    border-radius: 8px;
+}
+.article-submit:hover {
+    border: 1px solid #f12020;
+    color: #f12020;
+}
+/*首页*/
+.home-main{
+    background: #f5f7f9;
+    display: flex;
+    flex-flow: row;
+}
+.home-left{
+    width: 299px;
+    border-right: 1px solid #e0e0e0;
+}
+.home-right{
+    flex: 1;
+    background: #ffffff;
+}
+.home-logo a{
+    display: block;
+    height: 50px;
+    padding: 0px 25px;
+}
+.home-logo a img{
+    vertical-align: top;
+    margin-top: 5px;
+    border-radius: 20px;
+}
+.home-logo a span{
+    font-size: 16px;
+    line-height: 40px;
+    margin-left: 10px;
+    color: #333333;
+}
+.home-logo{
+    border-bottom: 1px solid #e0e0e0;
+}
+.home-nav{
+    padding: 0px 25px ;
+    margin-top: 40px;
+}
+.home-nav p,.home-nav a{
+    display: block;
+    font-size: 15px;
+    line-height: 16px;
+    padding: 10px 0px;
+    color: #364149;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.home-nav p{
+    font-size: 16px;
+    cursor: pointer;
+}
+.home-nav a{
+    padding-left: 1em;
+}
+.home-nav a:hover{
+    text-decoration: underline;
+}
+.home-nav a.cur{
+    color: #008cff;
+}
+.home-nav a.cur:hover{
+    text-decoration: none;
+}
+.all-article-header{
+    height: 50px;
+    border-bottom: 1px solid #e0dfe3;
+    background: #ffffff;
+}
+.all-article-icon{
+    background: url("../images/all-header-icon.png") no-repeat center center;
+    height: 50px;
+    width: 19px;
+    padding: 0px 5px;
+    cursor: pointer;
+    margin-left: 15px;
+    float: left;
+}
+.all-article-header-right{
+    float: right;
+    margin-right: 25px;
+    height: 36px;
+    margin-top: 7px;
+}
+.all-article-contact{
+    position: relative;
+    float: left;
+    margin-left: 8px;
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+}
+.all-article-contact img.icon{
+    opacity: .5;
+}
+.all-article-contact img.icon:hover{
+    opacity: 1;
+}
+.article-contact-content{
+    position: absolute;
+    left: 50%;
+    margin-left: -40px;
+    top: 100%;
+    margin-top: 10px;
+    display: none;
+}
+.all-article-contact:hover .article-contact-content{
+    display: block;
+}
+.articlePreview{
+    padding: 15px 25px;
+    margin: 15px 150px 0px 150px;
+    background: #ffffff;
+    border: 1px solid #e0dfe3;
+}
+.articlePreview-title{
+    font-size: 14px;
+    line-height: 20px;
+    height: 20px;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.articlePreview-title a{
+    color: #333333;
+}
+.articlePreview-title a:hover{
+    color: #f12020;
+}
+.articlePreview-content{
+    line-height: 20px;
+    font-size: 12px;
+    color: #666;
+    max-height: 150px;
+    padding-top: 10px;
+    overflow: hidden;
+}
+.articlePreview-tool{
+    height: 25px;
+    margin-top: 15px;
+    text-align: right;
+}
+.articlePreview-read{
+    display: inline-block;
+    vertical-align: top;
+    height: 23px;
+    width: 63px;
+    text-align: center;
+    border: 1px solid #e0dfe3;
+    color: #333333;
+    line-height: 23px;
+    font-size: 12px;
+}
+.articlePreview-read:hover{
+    color:#f12020 ;
+    border: 1px solid #f12020;
+}
+.articlePreview-number{
+    line-height: 25px;
+    font-size: 12px;
+    padding-left: 36px;
+    margin-left: 5px;
+    background: url("../images/article-person-number.png") no-repeat  left center;
+    height: 25px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 30px;
+    color: #999999;
+}
+.AllArticle-content{
+    padding-top: 25px;
+}
+.article-share-list li a{
+    font-size: 12px;
+    color: #999999;
+}
+.article-share-list li:hover a{
+    color: #333333;
+}
+.article-share-list{
+    padding: 5px 10px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,.4);
+    background: #ffffff;
+}
+.article-share-list li{
+    line-height: 24px;
+    text-align: center;
+}
+
+.article-share-content{
+    width: 100px;
+    margin-left: -50px;
+    margin-top: -1px;
+}
+.article-share-icon{
+    margin-right: 15px;
+}
+.header-article-title{
+    margin: 0px 200px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    color: #888888;
+    font-weight: normal;
+    display: none;
+}
+.all-article-header:hover .header-article-title{
+    display: block;
+}
+.articleDetails-title{
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+    line-height: 36px;
+    height: 36px;
+    padding: 15px;
+    font-weight: normal;
+}
+
+.layer-container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: rgba(0,0,0,0.3);
+    z-index: 1111;
+}
+.layer-tips-box{
+    height: 160px;
+    width: 380px;
+    padding: 40px 10px;
+    background: #ffffff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    z-index: 1111;
+    margin-left: -200px;
+    margin-top: -120px;
+    line-height: 135px;
+    overflow: hidden;
+}
+.tips-content{
+    line-height: 20px;
+    font-size: 16px;
+    color: #333333;
+    padding: 20px 0px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+.layer-tips-btn span{
+    height: 28px;
+    width: 64px;
+    border: 1px solid #e0dfe3;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px 5px;
+    font-size: 14px;
+    color: #999;
+}
+.layer-tips-btn{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.layer-tips-btn span:hover{
+    color: #f12020;
+    border: 1px solid #f12020;
+    cursor: pointer;
+}

@@ -1,0 +1,88 @@
+@charset "utf-8";
+/*reset*/
+body,div,ul,li,h1,h2,h3,h4,h5,h6,input,p,img,em{ margin: 0; padding: 0;}
+ul li{list-style: none;}
+input{outline: none;border: none}
+a{text-decoration: none;color:#464646;}
+/*清除浮动*/
+
+.clearfix{*zoom:1;} /* 针对IE7 hack，触发IE7的haslayout，以清除浮动 */
+.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+.clearfix:after{clear:both;}
+.com-width{
+    width: 1000px;
+    margin: 0px auto;
+}
+
+body{font-family:"微软雅黑","Microsoft YaHei",sans-serif;font-size:14px;background:rgb(246, 249, 249)!important;}
+#helloWeek{
+
+}
+.noselect{
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+/*通用样式*/
+.check-box{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background: url("../images/check-icon.png") no-repeat center center;
+    vertical-align: top;
+    display: inline-block;
+}
+.checked-label{
+    vertical-align: top;
+    line-height: 15px;
+    font-size: 12px;
+    color: #333333;
+    display: inline-block;
+    margin-left: 8px;
+}
+.check-box.checked{
+    background: url("../images/checked-icon.png") no-repeat;
+}
+.select-box{
+    min-width: 120px;
+    height: 28px;
+    border: 1px solid #dedede;
+    position: relative;
+    border-radius: 3px;
+    font-size: 14px;
+    background: #ffffff;
+}
+.select-label{
+    padding-left: 10px;
+    cursor: pointer;
+    line-height: 28px;
+    color: #000000;
+}
+.select-list{
+    width: 100%;
+    position: absolute;
+    left: -1px;
+    top: 100%;
+    border: 1px solid #dedede;
+    background: #ffffff;
+    display: none;
+}
+.select-list li{
+    cursor: pointer;
+    padding-left: 10px;
+    line-height: 20px;
+    height: 24px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #333333;
+}
+.select-list li:hover{
+    color: #666666;
+    background: #eeeeee;
+}
