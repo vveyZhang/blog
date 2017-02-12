@@ -171,21 +171,20 @@ var  Login=React.createClass({
      if(userInfor.userNameState==false||userInfor.userPasswordState==false) return;
      var _this=this;
      $.ajax({
-       url: "manage/login",
+       url: "/manage/login",
        type: "POST",
        data: {
          username: userInfor.userName,
          userpw: userInfor.userPassword
        },
        success:function(data){
-         console.log('登录成功');
          if(!data.status){
            _this.setState({
              loginState:false
            });
-           return
+           return;
          }
-         browserHistory.replace('admin/articlelist');
+         browserHistory.replace('/admin/articlelist')
        },
        error:function(data,stauts,e){
          alert('系统错误')
@@ -199,26 +198,23 @@ var  Login=React.createClass({
        if(userInfor.userNameState==false||userInfor.userPasswordState==false) return;
        var _this=this;
        $.ajax({
-         url: "/login",
+         url: "/manage/login",
          type: "POST",
          data: {
-           userName: userInfor.userName,
-           userPwd: userInfor.userPassword
+           username: userInfor.userName,
+           userpw: userInfor.userPassword
          },
-         dataType:'json',
-         cache: false,
-         timeout: 5000,
-         success:function(data,status){
-           if(data.loginUser){
-             hashHistory.replaceState(null, '/home');
-           }else{
+         success:function(data){
+           if(!data.status){
              _this.setState({
                loginState:false
-             })
+             });
+             return;
            }
-
+           browserHistory.replace('/admin/articlelist')
          },
-         error:function(data,status,e){
+         error:function(data,stauts,e){
+           alert('系统错误');
            console.log(data);
          }
        });

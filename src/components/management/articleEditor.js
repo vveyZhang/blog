@@ -47,7 +47,7 @@ export class ArticleEditor extends React.Component{
     };
     getArticle=(e)=>{
         $.ajax({
-            url:"http://127.0.0.1:3000/manage/admin/details/"+this.props.params.id,
+            url:"/manage/admin/details/"+this.props.params.id,
             type:'get',
             dataType:'json'
         }).then(json=>{
@@ -112,7 +112,7 @@ export class ArticleEditor extends React.Component{
             isPending:true
         });
         $.ajax({
-            url:'http://127.0.0.1:3000/manage/admin/upload',
+            url:'/manage/admin/upload',
             type:'post',
             data:{
                 id:this.state.id,

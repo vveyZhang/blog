@@ -7,12 +7,12 @@ export class AllHeader extends React.Component{
                 <div className="all-article-icon"></div>
                 <div className="all-article-header-right">
                     <div className="all-article-contact">
-                        <a href=""><img className='icon' src="http://localhost:8181/images/weiBo-icon.png"  alt=""/></a>
+                        <a href=""><img className='icon' src="http://localhost:3000/images/weiBo-icon.png"  alt=""/></a>
                     </div>
                     <div className="all-article-contact">
-                        <img className='icon' src="http://localhost:8181/images/weChat-icon.png"  alt=""/>
+                        <img className='icon' src="http://localhost:3000/images/weChat-icon.png"  alt=""/>
                         <div className="article-contact-content">
-                            <img src="http://localhost:8181/images/my-code.png" width="80" height="80" alt=""/>
+                            <img src="http://localhost:3000/images/my-code.png" width="80" height="80" alt=""/>
                         </div>
                     </div>
                 </div>

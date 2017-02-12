@@ -18,45 +18,43 @@ import {ArticleDetails} from './components/home/articleDetail/articleDetail.js';
 //flux引入
 import actions from './actions/manageAction';
 import appStores from './stores/manageStores';
-function jumpVal(nextState,replace){
+//<Route path="item" component={ActivityItem}/>
+
+function jumpVal(nextState,replace) {
     $.ajax({
-        url: "manage/val",
+        url: "/manage/val",
         type: "POST",
-        async:false,
-        success:function(data){
-            console.log('判断登录');
-            if(!data.status){
+        async: false,
+        success: function (data) {
+            if (!data.status) {
                 browserHistory.replace('/login');
-            };
+            }
+            ;
         },
-        error:function(data,stauts,e){
+        error: function (data, stauts, e) {
             browserHistory.replace('/login');
-            console.log(data);
         }
     });
-
-}
-//<Route path="item" component={ActivityItem}/>
+};
 var routes=<Route path="/" component={App}>
-                <IndexRedirect to="/admin" />
-                <Route path='admin' onEnter={jumpVal} component={Management}>
+                <Route path='admin'   component={Management}>
+                    <Route path="articlelist"  onEnter={jumpVal}  component={ArticleList}/>
+                    <Route path="article/:id"  onEnter={jumpVal}  component={ArticleDetail}/>
+                    <Route path="editor/:id" onEnter={jumpVal}   component={ArticleEditor}/>
+                    <Route path="push"  onEnter={jumpVal}  component={ArticlePush}/>
                     <IndexRedirect to="/admin/articlelist" />
-                    <Route path="articlelist"  onEnter={jumpVal} component={ArticleList}/>
-                    <Route path="article/:id" onEnter={jumpVal}  component={ArticleDetail}/>
-                    <Route path="editor/:id"  onEnter={jumpVal} component={ArticleEditor}/>
-                    <Route path="push"   onEnter={jumpVal}  component={ArticlePush}/>
                 </Route>
                 <Route path="login" component={Login}  />
                 <Route path="home" component={Home}>
-                    <IndexRedirect to="/home/all" />
                     <Route path="all" component={AllArticle}/>
                     <Route path="article/:id" component={ArticleDetails}/>
+                    <IndexRedirect to="/home/all" />
                 </Route>
-
+                <IndexRedirect to="/home" />
                 <Route path="*" component={Home}/>
               </Route>;
 ReactDOM.render((
     <Router history={browserHistory} routes={routes} />
-), document.getElementById('helloWeek'));
+), document.getElementById('helloWeek'))
 
 

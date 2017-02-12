@@ -410,6 +410,9 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.home-nav a{
+    padding: 5px 0px;
+}
 .home-nav p{
     font-size: 16px;
     cursor: pointer;

@@ -25,7 +25,7 @@ export class ArticleList extends React.Component{
     goRender(type="all",page=1){
         $.ajax({
             type:'get',
-            url:"http://127.0.0.1:3000/manage/admin/find",
+            url:"/manage/admin/find",
             data:{
                 type:type,
                 page:page
@@ -68,7 +68,7 @@ export class ArticleList extends React.Component{
         var that=this;
         $.ajax({
             type:'get',
-            url:"http://127.0.0.1:3000/manage/admin/delete",
+            url:"/manage/admin/delete",
             data:{
                 id:id
             },

@@ -72,7 +72,7 @@ export class ArticlePush extends React.Component{
             isPending:true
         });
         $.ajax({
-            url:'http://127.0.0.1:3000/manage/admin/upload',
+            url:'/manage/admin/upload',
             type:'post',
             data:{
                 title:that.state.title,

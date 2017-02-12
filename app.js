@@ -10,7 +10,7 @@ var routes = require('./routes/index');
 var BCrypt=require('bcryptjs');
 
 var app = express();
-
+router = express.Router();
 // view engine setup
 app.use(helmet());
 app.use(favicon());
@@ -19,66 +19,26 @@ app.use(bodyParser.urlencoded({extended:false}));
 //设置session
 app.use(cookieParser());
 app.use(session({
-    secret:'secret',
-    resave:false,
-    saveUninitialized:true,
+    secret:'keyboard cat',
+    resave:true,
+    saveUninitialized:false,
     cookie:{
-        maxAge:1000*60*60//过期时间设置(单位毫秒),
+        expires:1000*60*10 //过期时间设置(单位毫秒)
     }
 }));
-
+app.disable('view cache');
+app.set('views', __dirname+ '/src');
 app.engine('.html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'src')));
 app.use(app.router);
 
+routes(app);
 
 app.use(function (req, res) {
-    return res.render('index')
-})
-//user/下的用户验证
-app.all("/manage/admin/*",function(req,res,next){
-
-    //if(!req.session.username){
-    //
-    //
-    //
-    //}
-    next();
-});
-/// catch 404 and forwarding to error handler
-routes(app)
-
-app.get('/', function(req, res){
-    res.render('index');
-});
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+     res.render('index')
 });
 
-/// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
 
 
 module.exports = app;

@@ -1,7 +1,13 @@
 import React from 'react';
 
 export class ArticleDetails extends React.Component{
+    state={
 
+    }
+    componentDidMount(){
+
+
+    }
     render(){
         return(
             <div className="articleDetails">
@@ -9,7 +15,7 @@ export class ArticleDetails extends React.Component{
                     <div className="all-article-icon"></div>
                     <div className="all-article-header-right">
                         <div className="all-article-contact article-share-icon">
-                            <img style={{marginTop:'7px'}} className='icon ' src="http://localhost:8181/images/article-share.png" width='16' height="16" alt=""/>
+                            <img style={{marginTop:'7px'}} className='icon ' src="http://localhost:3000/images/article-share.png" width='16' height="16" alt=""/>
                             <div className="article-contact-content article-share-content">
                                 <ul className="article-share-list">
                                     <li><a href="">分享到空间</a></li>

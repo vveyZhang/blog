@@ -18,12 +18,12 @@ export class Management extends React.Component{
                 <div className="management-left noselect" >
                     <h1 className="main-title">vvey</h1>
                     <div className="management-logo">
-                        <img src="http://localhost:8181/images/tx.jpg" width="150" height="150" alt=""/>
+                        <img src="http://localhost:3000/images/tx.jpg" width="150" height="150" alt=""/>
                         <div className="management-logo-bg"></div>
                     </div>
                     <nav className="management-nav">
                         <ul>
-                            <li><Link activeClassName="cur" to="/admin/articlelist">全部文章</Link></li>
+                            <li><Link activeClassName="cur" to="/admin/articlelist/">全部文章</Link></li>
                             <li><Link activeClassName="cur" to="/admin/push">发表文章</Link></li>
                             <li><Link  to="/out" activeClassName="cur">退出</Link></li>
                         </ul>

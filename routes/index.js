@@ -23,7 +23,6 @@ module.exports= function (app) {
               req.session.username=username;
               req.session.userpw=admin.salt;
               res.json({status:true});
-              console.log(req.session)
               return
           }
           res.json({'status':false});
@@ -36,7 +35,7 @@ module.exports= function (app) {
 
   });
     app.post('/manage/val',function(req,res){
-        console.log(req.session)
+        console.log(1)
        if(!req.session.username){
            res.json({status:false});
            return;
@@ -52,10 +51,11 @@ module.exports= function (app) {
                 return
             }
             if(bcrypt.compareSync(admin.admin_pw,userpw)){
+                console.log('验证成功')
                 res.json({status:true});
                 return
             }
-            res.json({'status':false});
+
 
         }).catch(function(error){
             console.log(error);

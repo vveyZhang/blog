@@ -22,7 +22,7 @@ export class ArticleDetail extends React.Component{
 
     getArticle=(e)=>{
         $.ajax({
-            url:"http://127.0.0.1:3000/manage/admin/details/"+this.props.params.id,
+            url:"/manage/admin/details/"+this.props.params.id,
             type:'get',
             dataType:'json'
         }).then(json=>{
@@ -42,7 +42,7 @@ export class ArticleDetail extends React.Component{
        let id=this.props.params.id;
         $.ajax({
             type:'get',
-            url:'http://127.0.0.1:3000/manage/admin/delete',
+            url:'/manage/admin/delete',
             data:{
                 id:id.toString()
             }

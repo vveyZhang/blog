@@ -5,7 +5,7 @@ var sequelize=require('./config.js'),
     ArticleType=sequelize.import('./models/articleType.js');
 //
 Admin.hasMany(ArticleDetail);
-ArticleType.hasMany(ArticleDetail);
+ArticleType.hasMany(ArticleDetail,{as:'list'});
 //sequelize.sync({force:true});
 module.exports={
     Admin:Admin,
