@@ -6,7 +6,8 @@ import $ from 'jquery'
 export class AllArticle extends React.Component{
     state={
         page:1,
-        articles:[]
+        articles:[],
+        loading:false
     };
     componentDidMount(){
         var that=this;
@@ -14,7 +15,6 @@ export class AllArticle extends React.Component{
             type:'get',
             url:'/handle/home/find',
             success:function(data){
-                console.log(data)
                 that.setState({
                     articles:data
                 })
@@ -22,8 +22,44 @@ export class AllArticle extends React.Component{
             error:function(err){
                 console.log(err)
             }
+        });
+        var that=this;
+        $(window).on('scroll',function(){
+            var ch=$(window).height();
+            var dh=$(document).height();
+            var top=$(window).scrollTop();
+            if(top+ch==dh){
+                that.setState({
+                    loading:true
+                })
+                that.setState({
+                    page:that.state.page++
+                });
+                $.ajax({
+                    type:'get',
+                    url:'/handle/home/find',
+                    success:function(data){
+                        var articles=data;
+                        for (let article of that.state.articles){
+                            articles.push(article)
+                        }
+                        setTimeout(function(){
+                            that.setState({
+                                articles:articles,
+                                loading:false
+                            })
+                        },500)
+                    },
+                    error:function(err){
+                        console.log(err)
+                    }
+                });
+            }
         })
     }
+    componentWillUnmount() {
+        $(window).off('scroll');
+    };
     render(){
         return(
             <div className="AllArticle-main">
@@ -39,7 +75,9 @@ export class AllArticle extends React.Component{
                     }
 
                 </div>
-
+                <div className="loading" style={{display:this.state.loading?'block':'none'}}>
+                    <img src="http://127.0.0.1:3000/images/loading.gif" width="100" height="20" alt=""/>
+                </div>
             </div>
         )
     }

@@ -8,10 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    number: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false
-    },
     article_author: {
       type: DataTypes.STRING,
       allowNull: false

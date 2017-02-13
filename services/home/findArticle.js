@@ -6,7 +6,8 @@ var Article=db.Article;
 module.exports= function (req,callback){
     var articleId=req.params.id;
     co(function *(){
-        var article=yield Article.findOne({
+
+         var article=yield Article.findOne({
             attributes: ['id','article_title','article_content','article_author','article_type',['updated_at','time']],
             where:{
                 id:articleId

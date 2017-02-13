@@ -1,11 +1,17 @@
 import React from 'react';
 import {Link} from 'react-router';
 import $ from 'jquery'
+import ReactMixin from 'react-mixin';
+import Reflux from 'reflux'
+import {homeStore} from '../../stores/homeStores.js'
+import {homeAction} from '../../actions/homeAction.js'
 export class Left extends React.Component{
     state={
-        nav:[]
+        nav:[],
+        show:homeStore.getStatus()
     };
     componentDidMount(){
+
         $.ajax({
             url:"/handle/home/title",
             type:'get'
@@ -15,12 +21,11 @@ export class Left extends React.Component{
             })
         }).catch(err=>console.log(err))
     }
-
     render(){
         return(
-            <div className="home-left" >
+            <div  className={this.state.show?'home-left':'home-left hidden'} >
                 <div className="home-logo">
-                    <a href="/"><img src="http://localhost:3000/images/tx.jpg" width="40" height="40" alt=""/><span>vvey  前端笔记</span></a>
+                    <a href="/"><span>vvey  前端笔记</span></a>
                 </div>
                 <ul className="home-nav">
                     {
@@ -50,3 +55,5 @@ export class Left extends React.Component{
         )
     }
 }
+
+ReactMixin.onClass(Left, Reflux.connect(homeStore,'show'));

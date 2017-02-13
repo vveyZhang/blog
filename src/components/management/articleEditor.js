@@ -154,7 +154,7 @@ export class ArticleEditor extends React.Component{
                 <TipsLayer tips={this.state.error||this.state.tips} toggle={this.hiddenTips} ></TipsLayer>
                 <div className="ArticleEditor-title ArticleEditor-class"><input ref='type' onChange={this.getTitle} type="text" placeholder="类别"/></div>
                 <div className="ArticleEditor-title"><input type="text"  ref='title' onChange={this.getType}  placeholder="请输入标题"/></div>
-                <div className="ArticleEditor-content" dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+                <div className="ArticleEditor-content"  dangerouslySetInnerHTML={{__html: this.state.content}}></div>
                 <div className="article-submit" onClick={this.uploadArticle}>提交</div>
                 <textarea  className="ckeditor"  onChange={this.getEditor} id="editorArticle"></textarea>
             </div>

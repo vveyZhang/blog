@@ -14,7 +14,6 @@ export class ArticleList extends React.Component{
 
     state={
         currentCategory:'all',
-        //listArticle:manageStore.getList(),
         tips:null,
         warn:null
     };
