@@ -10,6 +10,8 @@ var routes = require('./routes/index');
 var BCrypt=require('bcryptjs');
 
 var app = express();
+var log = require("./tools/logHelper");
+log.use(app);
 router = express.Router();
 // view engine setup
 app.use(helmet());

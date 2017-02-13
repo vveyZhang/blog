@@ -18,7 +18,7 @@ export class Management extends React.Component{
                 <div className="management-left noselect" >
                     <h1 className="main-title">vvey</h1>
                     <div className="management-logo">
-                        <img src="http://localhost:3000/images/tx.jpg" width="150" height="150" alt=""/>
+                        <img src="http://139.199.9.120:3000/images/tx.jpg" width="150" height="150" alt=""/>
                         <div className="management-logo-bg"></div>
                     </div>
                     <nav className="management-nav">
