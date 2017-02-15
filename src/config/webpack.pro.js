@@ -22,6 +22,11 @@ module.exports = webpackMerge(commonConfig, {
                 keep_fnames: true
             }
         }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
         new ExtractTextPlugin("./bundle.css")
     ]
 });
