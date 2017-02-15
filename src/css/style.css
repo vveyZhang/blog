@@ -659,7 +659,7 @@
     padding: 10px 50px;
 }
 .ds-powered-by{
-    display: none;!important;
+    display: none!important;
 }
 #comments{
     padding: 30px 50px;
