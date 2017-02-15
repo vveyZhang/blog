@@ -8,6 +8,32 @@ var Admin=db.Admin;
 //var salt=bcrypt.genSaltSync(5);
 //var pass = bcrypt.hashSync(psw, salt);
 module.exports= function (app) {
+    app.get('/admin',function(){
+        if(!req.session.username){
+            res.redirect('/login');
+            return;
+        }
+        var username=req.session.username;
+        var userpw=req.session.userpw;
+        co(function *(){
+            var admin= yield  Admin.findOne({
+                admin_name:username
+            });
+            if(admin.length==0){
+                res.redirect('/login');
+                return
+            }
+
+            if(admin.admin_pw==userpw){
+                next();
+                return
+            }
+            res.redirect('/login');
+        }).catch(function(error){
+            console.log(error)
+            res.location('/login');
+        })
+    });
     app.all('/admin/*',function(req,res,next){
         if(!req.session.username){
             res.redirect('/login');
@@ -87,10 +113,6 @@ module.exports= function (app) {
       })
 
   });
-    app.post('/manage/val',function(req,res){
-
-
-    });
   admin(app);
   home(app);
 };

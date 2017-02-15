@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
-    "build": "webpack --config ./src/config/webpack.pro.js -w"
+    "build": "webpack --config ./src/config/webpack.pro.js"
   },
   "dependencies": {
     "babel-preset-stage-0": "^6.22.0",
