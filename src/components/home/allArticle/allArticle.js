@@ -76,7 +76,7 @@ export class AllArticle extends React.Component{
 
                 </div>
                 <div className="loading" style={{display:this.state.loading?'block':'none'}}>
-                    <img src="http://127.0.0.1:3000/images/loading.gif" width="100" height="20" alt=""/>
+                    <img src="http://www.vveyzhang.com/images/loading.gif" width="100" height="20" alt=""/>
                 </div>
             </div>
         )
