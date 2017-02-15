@@ -37,6 +37,7 @@ app.use(app.router);
 
 routes(app);
 
+
 app.use(function (req, res) {
      res.render('index')
 });

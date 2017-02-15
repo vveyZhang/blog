@@ -88,8 +88,12 @@ export class ArticlePush extends React.Component{
                     setTimeout(function(){
                         browserHistory.replace('/admin/article/'+data[0].id)
                     },500)
-
+                    return;
                 }
+                that.setState({
+                    error:'上传失败,请刷新页面',
+                    isPending:false
+                })
             },
             error:function(error){
                 that.setState({

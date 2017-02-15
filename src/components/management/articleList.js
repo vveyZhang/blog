@@ -30,6 +30,9 @@ export class ArticleList extends React.Component{
                 page:page
             },
             success:function(data){
+                if(data.status!=undefined){
+                    return;
+                }
                 manageAction.setList(data)
             },
             error:function(error){

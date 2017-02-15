@@ -20,28 +20,28 @@ import actions from './actions/manageAction';
 import appStores from './stores/manageStores';
 //<Route path="item" component={ActivityItem}/>
 
-function jumpVal(nextState,replace) {
-    $.ajax({
-        url: "/manage/val",
-        type: "POST",
-        async: false,
-        success: function (data) {
-            if (!data.status) {
-                browserHistory.replace('/login');
-            }
-            ;
-        },
-        error: function (data, stauts, e) {
-            browserHistory.replace('/login');
-        }
-    });
-};
+//function jumpVal(nextState,replace) {
+//    $.ajax({
+//        url: "/manage/val",
+//        type: "POST",
+//        async: false,
+//        success: function (data) {
+//            if (!data.status) {
+//                browserHistory.replace('/login');
+//            }
+//            ;
+//        },
+//        error: function (data, stauts, e) {
+//            browserHistory.replace('/login');
+//        }
+//    });
+//};
 var routes=<Route path="/" component={App}>
                 <Route path='admin'   component={Management}>
-                    <Route path="articlelist"  onEnter={jumpVal}  component={ArticleList}/>
-                    <Route path="article/:id"  onEnter={jumpVal}  component={ArticleDetail}/>
-                    <Route path="editor/:id" onEnter={jumpVal}   component={ArticleEditor}/>
-                    <Route path="push"  onEnter={jumpVal}  component={ArticlePush}/>
+                    <Route path="articlelist"  component={ArticleList}/>
+                    <Route path="article/:id"  component={ArticleDetail}/>
+                    <Route path="editor/:id"   component={ArticleEditor}/>
+                    <Route path="push"   component={ArticlePush}/>
                     <IndexRedirect to="/admin/articlelist" />
                 </Route>
                 <Route path="login" component={Login}  />
