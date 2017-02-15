@@ -38,6 +38,9 @@ export class AllArticle extends React.Component{
                 $.ajax({
                     type:'get',
                     url:'/handle/home/find',
+                    data:{
+                        page:that.state.page
+                    },
                     success:function(data){
                         var articles=data;
                         for (let article of that.state.articles){
