@@ -33,6 +33,7 @@ app.set('views', __dirname+ '/src');
 app.engine('.html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'src')));
+
 app.use(app.router);
 
 routes(app);
