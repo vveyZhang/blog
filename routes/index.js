@@ -8,7 +8,7 @@ var Admin=db.Admin;
 //var salt=bcrypt.genSaltSync(5);
 //var pass = bcrypt.hashSync(psw, salt);
 module.exports= function (app) {
-    app.get('/admin',function(){
+    app.get('/admin',function(req,res){
         if(!req.session.username){
             res.redirect('/login');
             return;
