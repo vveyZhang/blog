@@ -16,6 +16,7 @@
     "ejs": "^2.5.5",
     "express": "~3.4.8",
     "express-session": "^1.15.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "fs": "0.0.1-security",
     "helmet": "^3.4.0",
     "http": "0.0.0",

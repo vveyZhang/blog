@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var ROOT_PATH = path.resolve(__dirname);
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 var PUBLIC_PATH = path.resolve(ROOT_PATH, 'public');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     //页面入口文件配置
@@ -12,7 +13,7 @@ module.exports = {
     module: {
         //加载器配置
         loaders: [
-            { test: /\.css$/, loader: 'style-loader!css-loader'},
+            { test: /\.css$/,loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
             { test: /\.(js|jsx)$/, loader: 'babel-loader', query: {compact:false,presets: ['es2015','react','stage-0']}},
             { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
             {test: /\.json$/, loader: 'json'}

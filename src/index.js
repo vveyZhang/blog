@@ -2,6 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import './css/style';
+import './css/public';
 //路由
 import {Router,Route,IndexRoute,hashHistory,Link,browserHistory,IndexRedirect} from 'react-router';
 //引入模块

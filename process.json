@@ -5,6 +5,7 @@
     "exec_mode": "fork",
     "watch": true,
     "ignore_watch": ["tmp"],
+    "max_memory_restart":"300M",
     "env": {
         "NODE_ENV": "production"
     }
