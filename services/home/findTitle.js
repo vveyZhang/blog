@@ -6,16 +6,20 @@ var Article=db.Article,
     ArticleType=db.ArticleType;
 module.exports= function (req,callback){
     co(function *(){
-        var articles=yield ArticleType.findAll({
-            attributes: ['article_type'],
-            include:[{
-                model:Article,
-                as:'list',
-                attributes:['id','article_title']
-            }]
-
+        var articlesType=yield ArticleType.findAll({
+            attributes: ['article_type','id'],
+            order:[['updated_at','DESC']]
         });
-        callback(null,articles);
+        var articlesNew=yield Article.findAll({
+            limit:5,
+            order:[['updated_at','DESC']],
+            attributes: ['article_title','id','views']
+        });
+        var articlesNav={
+            category:articlesType,
+            newest:articlesNew
+        }
+        callback(null,articlesNav);
     }).catch(function(error){
         console.log(error);
         callback(error,null)

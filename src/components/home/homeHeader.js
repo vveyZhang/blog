@@ -25,7 +25,7 @@ export class HomeHeader extends React.Component{
     render(){
 
         return(
-            <div className="container">
+            <div className="header-container">
                 <div id="site-header">
                     <div className="row">
                         <div className="col-md-4 col-sm-5 col-xs-8">

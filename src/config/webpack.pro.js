@@ -27,6 +27,6 @@ module.exports = webpackMerge(commonConfig, {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
-        new ExtractTextPlugin("./bundle.css")
+
     ]
 });

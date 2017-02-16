@@ -32,7 +32,8 @@ module.exports = {
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest:require('../../manifest.json')
-        })
+        }),
+        new ExtractTextPlugin("./bundle.css")
     ]
 };
 

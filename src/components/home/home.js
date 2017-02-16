@@ -7,7 +7,6 @@ import {HomeHeader} from './homeHeader';
 
 export class Home extends React.Component{
     componentDidMount(){
-        $('.home-main').css({'min-height':$(window).height()})
     }
     state={
         fullScreen:false
@@ -21,8 +20,7 @@ export class Home extends React.Component{
         return(
             <div>
                 <HomeHeader></HomeHeader>
-
-                <div className="home-right">
+                <div className="home-main">
                     {this.props.children}
                 </div>
             </div>
