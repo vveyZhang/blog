@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import $ from 'jquery';
-import {Left} from './left';
+import {HomeHeader} from './homeHeader';
 
 export class Home extends React.Component{
     componentDidMount(){
@@ -19,8 +19,9 @@ export class Home extends React.Component{
     }
     render(){
         return(
-            <div className='home-main'>
-                <Left style={{width:this.state.fullScreen? '0px':'299px'}}></Left>
+            <div>
+                <HomeHeader></HomeHeader>
+
                 <div className="home-right">
                     {this.props.children}
                 </div>
