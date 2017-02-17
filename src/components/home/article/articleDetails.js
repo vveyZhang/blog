@@ -14,13 +14,14 @@ function getArticle(id,that){
 }
 function toggleDuoshuoComments(container,that){
     var url='http://'+window.location.hostname+'/home/article/'+that.state.article.id;
-    $(container).empty();
+    $("#comments").empty();
     var el = document.createElement('div');//该div不需要设置class="ds-thread"
     el.setAttribute('data-thread-key', that.state.article.id);//必选参数
     el.setAttribute('data-url', url);//必选参数
     el.setAttribute('data-title', that.state.article.article_title);//可选参数
     DUOSHUO.EmbedThread(el);
-    $(container).append(el);
+    $("#comments").append(el);
+
 }
 export class HomeArticleDetails extends React.Component{
     state={
@@ -59,7 +60,8 @@ export class HomeArticleDetails extends React.Component{
                 </div>
                 <div className="article-content" dangerouslySetInnerHTML={{__html:article.article_content}}>
                 </div>
-                <div id="comments" ref="comments"></div>
+                <div id="comments" ref="comments">
+                </div>
             </div>
         )
     }
