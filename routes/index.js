@@ -5,6 +5,7 @@ var sequelize=require('sequelize');
 var db=require('../mysql/index');
 var co=require('co');
 var Admin=db.Admin;
+var Article=db.Article;
 //var salt=bcrypt.genSaltSync(5);
 //var pass = bcrypt.hashSync(psw, salt);
 module.exports= function (app) {
@@ -113,6 +114,23 @@ module.exports= function (app) {
       })
 
   });
+    app.get('/notes/article/:id',function(req,res,next){
+        var id=req.params.id;
+        co(function *(){
+         var article= yield Article.findOne({
+             where:{
+                 id:id
+             }
+         });
+            var views=parseInt(article.views)+1;
+            article.update({
+                views:views
+            })
+        }).catch(function(error){
+            console.log(error)
+        });
+        next()
+    })
   admin(app);
   home(app);
 };

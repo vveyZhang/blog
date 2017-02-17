@@ -54,11 +54,6 @@ p {
 figure {
 	margin-bottom: 25px;
 }
-
-.img-responsive-center img {
-	margin: 0 auto;
-}
-
 .height-40px {
 	margin-bottom: 40px;
 }
@@ -182,7 +177,7 @@ figure {
 
 .post {
 	background: #fff;
-	padding: 30px 30px 0;
+	padding: 60px 30px 0;
 }
 
 .entry-title {
@@ -195,10 +190,11 @@ figure {
 
 .entry-meta {
 	text-align: center;
-	color: #DDDDDD;
+	color: #999;
 	font-size: 13px;
 	letter-spacing: 1px;
 	margin-bottom: 30px;
+	font-family: "Microsoft YaHei", "微软雅黑";
 }
 
 .entry-content {
@@ -216,6 +212,9 @@ figure {
 	position: relative;
 	padding-right: 15px;
 }
+.post-author{
+	text-transform: capitalize;
+}
 
 .post-category::after,
 .post-date::after,
@@ -231,85 +230,6 @@ figure {
 /**
  * 4.1 - Read More Button CSS 3 style
  */
-
-.read-more {
-	font-family: "微软雅黑","Microsoft YaHei",  sans-serif;
-	font-weight: 400;
-	word-spacing: 1px;
-	letter-spacing: 0.01em;
-	text-align: center;
-	margin-top: 20px;
-}
-
-.cl-effect-14 a {
-	padding: 0 20px;
-	height: 45px;
-	line-height: 45px;
-	position: relative;
-	display: inline-block;
-	margin: 15px 25px;
-	letter-spacing: 1px;
-	font-weight: 400;
-	text-shadow: 0 0 1px rgba(255,255,255,0.3);
-}
-
-.cl-effect-14 a::before,
-.cl-effect-14 a::after {
-	position: absolute;
-	width: 45px;
-	height: 1px;
-	background: #C3C3C3;
-	content: '';
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	transition: all 0.3s;
-	pointer-events: none;
-}
-
-.cl-effect-14 a::before {
-	top: 0;
-	left: 0;
-	-webkit-transform: rotate(90deg);
-	-moz-transform: rotate(90deg);
-	transform: rotate(90deg);
-	-webkit-transform-origin: 0 0;
-	-moz-transform-origin: 0 0;
-	transform-origin: 0 0;
-}
-
-.cl-effect-14 a::after {
-	right: 0;
-	bottom: 0;
-	-webkit-transform: rotate(90deg);
-	-moz-transform: rotate(90deg);
-	transform: rotate(90deg);
-	-webkit-transform-origin: 100% 0;
-	-moz-transform-origin: 100% 0;
-	transform-origin: 100% 0;
-}
-
-.cl-effect-14 a:hover::before,
-.cl-effect-14 a:hover::after,
-.cl-effect-14 a:focus::before,
-.cl-effect-14 a:focus::after {
-	background: #000;
-}
-
-.cl-effect-14 a:hover::before,
-.cl-effect-14 a:focus::before {
-	left: 50%;
-	-webkit-transform: rotate(0deg) translateX(-50%);
-	-moz-transform: rotate(0deg) translateX(-50%);
-	transform: rotate(0deg) translateX(-50%);
-}
-
-.cl-effect-14 a:hover::after,
-.cl-effect-14 a:focus::after {
-	right: 50%;
-	-webkit-transform: rotate(0deg) translateX(50%);
-	-moz-transform: rotate(0deg) translateX(50%);
-	transform: rotate(0deg) translateX(50%);
-}
 
 
 /**
@@ -429,6 +349,9 @@ figure {
 	left: 0;
 	padding: 10px 30px 10px 10px;
 	z-index: 99;
+	font-family: "Microsoft YaHei", "微软雅黑";
+	color: #666666;
+	font-size: 14px;
 }
 
 #searchform button {
@@ -502,7 +425,6 @@ figure {
 .overlay ul li {
 	display: block;
 	height: 20%;
-	height: calc(100% / 5);
 	min-height: 54px;
 }
 

@@ -377,3 +377,71 @@
     font-size: 12px;
     color: #999999;
 }
+.widget ul li a.cur{
+    color: rgb(0, 140, 255);
+}
+.loading-box{
+    height: 20px;
+    text-align: center;
+    padding: 35px;
+}
+.loading-all{
+    height: 20px;
+    line-height: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: #999;
+    padding: 70px 0px;
+    margin-top: 30px;
+}
+.nothing{
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    padding: 75px 0;
+    color: #666;
+}
+.padding-b{
+    padding-bottom: 60px;
+}
+.article-content{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.ds-powered-by{
+    display: none !important;
+}
+.entry-title a:hover{
+    color: #f12020;
+}
+.img-responsive-center img{
+    display: block;
+}
+.img-responsive{
+    width: 100%;
+    opacity: .75;
+}
+.img-responsive-center{
+    margin-top: 30px;
+    margin-bottom: 55px;
+    position: relative;
+}
+.img-responsive-tx{
+    position: absolute;
+    border-radius: 80px;
+    left: 50%;
+    margin-left: -80px;
+    bottom: -80px;
+}
+.about-job{
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 60px;
+    height: 60px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+.my-code{
+    padding: 35px 0px;
+    text-align: center;
+}

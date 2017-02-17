@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import './css/style';
 import './css/public';
+import './css/style';
 //路由
 import {Router,Route,IndexRoute,hashHistory,Link,browserHistory,IndexRedirect} from 'react-router';
 //引入模块
@@ -17,6 +17,7 @@ import {ArticleEditor} from './components/management/articleEditor.js';
 
 
 import {Home} from './components/home/home.js';
+import {About} from './components/about/about.js';
 import {HomeArticleMain} from './components/home/article/articleMain.js';
 import {HomeArticleList} from './components/home/article/articleList.js';
 import {HomeArticleDetails} from './components/home/article/articleDetails.js';
@@ -34,15 +35,12 @@ var routes=<Route path="/" component={App}>
                     <Route path="push"   component={ArticlePush}/>
                     <IndexRedirect to="/admin/articlelist" />
                 </Route>
+                <Route path="home" component={Home} />
+                <Route path="about" component={About} />
                 <Route path="login" component={Login}  />
-                <Route path="notes" component={Home}>
-                    <IndexRedirect to="/notes/home" />
-                    <Route path="home" component={HomeArticleMain}>
-                        <IndexRoute component={HomeArticleList}/>
-                        <IndexRedirect to="/notes/home/list"  />
-                        <Route path="list/:type" component={HomeArticleList}/>
-                        <Route path="article/:id" component={HomeArticleDetails}/>
-                    </Route>
+                <Route path="notes" component={HomeArticleMain}>
+                    <Route path="list/:type" component={HomeArticleList}/>
+                    <Route path="article/:id" component={HomeArticleDetails}/>
                 </Route>
               </Route>;
 ReactDOM.render((

@@ -8,11 +8,11 @@ module.exports= function (req,callback){
     co(function *(){
         var articlesType=yield ArticleType.findAll({
             attributes: ['article_type','id'],
-            order:[['updated_at','DESC']]
+            order:[['created_at','DESC']]
         });
         var articlesNew=yield Article.findAll({
             limit:5,
-            order:[['updated_at','DESC']],
+            order:[['created_at','DESC']],
             attributes: ['article_title','id','views']
         });
         var articlesNav={

@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-w",
     "build": "webpack --config ./src/config/webpack.pro.js"
   },
   "dependencies": {
