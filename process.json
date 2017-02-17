@@ -5,10 +5,13 @@
     "exec_mode": "fork",
     "watch": true,
     "ignore_watch": ["tmp"],
-    "max_memory_restart":"300M",
-    "out_file" : "/logs/nova_out.log",
-    "error_file" : "/logs/nova_error.log",
-    "instances"  : 4,
+    "max_memory_restart":"1M",
+    "out_file" : "./logs/nova_out.log",
+    "error_file" : "./logs/nova_error.log",
+    "log_date_format":"YYYY-MM-DD HH:mm Z",
+    "min_uptime": "60s",
+    "max_restarts": 4,
+    "pid_file": "./logs/app.pid",
     "env": {
         "NODE_ENV": "production"
     }
