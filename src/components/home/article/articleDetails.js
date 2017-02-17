@@ -22,6 +22,7 @@ function toggleDuoshuoComments(container,that){
     DUOSHUO.EmbedThread(el);
     $("#comments").append(el);
 
+
 }
 export class HomeArticleDetails extends React.Component{
     state={

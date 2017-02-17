@@ -15,6 +15,10 @@ export class Home extends React.Component{
         nothing:false
     };
     componentDidMount(){
+
+        $('.padding-bottom').css({
+            'min-height':$(window).height()
+        })
         var that=this;
         $.ajax({
             type:'get',
@@ -73,7 +77,7 @@ export class Home extends React.Component{
     };
     render(){
         return(
-            <div>
+            <div className="padding-bottom">
                 <Header></Header>
                 <div className="home-main">
                     <div className="row">
@@ -96,11 +100,9 @@ export class Home extends React.Component{
                     </div>
                 </div>
                 <div id="site-footer">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <p className="copyright">&copy; 2017 vveyzhang.com  </p>
-                            </div>
+                    <div className="">
+                        <div className="col-md-12">
+                            <p className="copyright">&copy; 2017 vveyzhang.com  </p>
                         </div>
                     </div>
                 </div>

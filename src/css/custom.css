@@ -296,6 +296,14 @@ figure {
 #site-footer {
 	padding-top: 10px;
 	padding: 0 0 1.5em 0;
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	bottom: 0px;
+}
+.padding-bottom{
+	padding-bottom: 70px;
+	position: relative;
 }
 
 .copyright {

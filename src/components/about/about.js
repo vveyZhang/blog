@@ -5,9 +5,15 @@ import React from 'react';
 import $ from 'jquery';
 import {Header} from '../home/header.js';
 export class About extends React.Component{
+
+    componentDidMount(){
+        $('.padding-bottom').css({
+            'min-height':$(window).height()
+        })
+    }
     render(){
         return(
-            <div>
+            <div className="padding-bottom">
                 <Header></Header>
                 <div className="home-main">
                     <div className="row">
@@ -28,11 +34,9 @@ export class About extends React.Component{
                         </div>
                     </div>
                 <div id="site-footer">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <p className="copyright">&copy; 2017 vveyzhang.com  </p>
-                            </div>
+                    <div className="">
+                        <div className="col-md-12">
+                            <p className="copyright">&copy; 2017 vveyzhang.com  </p>
                         </div>
                     </div>
                 </div>

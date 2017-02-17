@@ -1,11 +1,16 @@
 import React from 'react';
 import {ArticleLfet} from './articleLeft.js'
-import {Header} from '../header.js'
+import {Header} from '../header.js';
+import $ from 'jquery'
 export class HomeArticleMain extends React.Component{
-
+    componentDidMount(){
+        $('.padding-bottom').css({
+            'min-height':$(window).height()
+        })
+    }
     render(){
         return(
-        <div>
+        <div className="padding-bottom">
             <Header></Header>
             <div className="home-main">
                 <div className="row">
@@ -18,11 +23,9 @@ export class HomeArticleMain extends React.Component{
                 </div>
             </div>
             <div id="site-footer">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <p className="copyright">&copy; 2017 vveyzhang.com  </p>
-                        </div>
+                <div className="">
+                    <div className="col-md-12">
+                        <p className="copyright">&copy; 2017 vveyzhang.com  </p>
                     </div>
                 </div>
             </div>
