@@ -6,6 +6,9 @@
     "watch": true,
     "ignore_watch": ["tmp"],
     "max_memory_restart":"300M",
+    "out_file" : "/logs/nova_out.log",
+    "error_file" : "/logs/nova_error.log",
+    "instances"  : 4,
     "env": {
         "NODE_ENV": "production"
     }
