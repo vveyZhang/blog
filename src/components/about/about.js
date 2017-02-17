@@ -21,7 +21,7 @@ export class About extends React.Component{
                             <h1 className="page-title">About Me</h1>
                             <div className="entry-content clearfix">
                                 <div className="img-responsive-center">
-                                    <img className="img-responsive" src="http://127.0.0.1:80/images/about-bg.jpg" />
+                                    <img className="img-responsive" src="http://www.vveyzhang.com/images/about-bg.jpg" />
                                 </div>
                                 <h1 className="about-job">职业-前端攻城狮</h1>
                                 <p>真不知道“关于”这个板块应该写点什么，但不要这感觉少了点东西，后来想了想写点东西可能会点好吧，毕竟我单身，万一有妹纸看到这个看上我了这不是也可以？</p>
