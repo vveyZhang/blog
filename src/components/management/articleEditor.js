@@ -111,9 +111,10 @@ export class ArticleEditor extends React.Component{
         this.setState({
             isPending:true
         });
+        var that=this;
         $.ajax({
-            url:'/manage/admin/upload',
-            type:'post',
+            url:'/manage/admin/change',
+            type:'get',
             data:{
                 id:this.state.id,
                 title:this.state.title,
@@ -122,13 +123,13 @@ export class ArticleEditor extends React.Component{
             },
             success:(data)=>{
                 if(data[0].status){
-                    this.setState({
+                    that.setState({
                         tips:'修改成功',
                         isPending:false
                     })
                     setTimeout(function(){
                         browserHistory.replace('/admin/article/'+data[0].id)
-                    },500)
+                    },500);
                     return;
                 }
                 that.setState({
@@ -156,8 +157,8 @@ export class ArticleEditor extends React.Component{
         return(
             <div className="ArticleEditor">
                 <TipsLayer tips={this.state.error||this.state.tips} toggle={this.hiddenTips} ></TipsLayer>
-                <div className="ArticleEditor-title ArticleEditor-class"><input ref='type' onChange={this.getTitle} type="text" placeholder="类别"/></div>
-                <div className="ArticleEditor-title"><input type="text"  ref='title' onChange={this.getType}  placeholder="请输入标题"/></div>
+                <div className="ArticleEditor-title ArticleEditor-class"><input ref='type' onChange={this.getType.bind(this)} type="text" placeholder="类别"/></div>
+                <div className="ArticleEditor-title"><input type="text"  ref='title' onChange={this.getTitle.bind(this)}  placeholder="请输入标题"/></div>
                 <div className="ArticleEditor-content"  dangerouslySetInnerHTML={{__html: this.state.content}}></div>
                 <div className="article-submit" onClick={this.uploadArticle}>提交</div>
                 <textarea  className="ckeditor"  onChange={this.getEditor} id="editorArticle"></textarea>

@@ -4,6 +4,8 @@ var sequelize=require('./config.js'),
     ArticleDetail=sequelize.import('./models/article_detail.js'),
     ArticleType=sequelize.import('./models/articleType.js');
 //
+//ArticleDetail.sync({force:true});
+//ArticleType.sync({force:true});
 Admin.hasMany(ArticleDetail);
 ArticleType.hasMany(ArticleDetail,{as:'list'});
 //sequelize.sync({force:true});

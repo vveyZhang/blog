@@ -444,3 +444,63 @@
     padding: 35px 0px;
     text-align: center;
 }
+/*弹出框*/
+
+.layer-container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: rgba(0,0,0,0.3);
+    z-index: 1111;
+}
+.layer-tips-box{
+    height: 160px;
+    width: 380px;
+    padding: 40px 10px;
+    background: #ffffff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    z-index: 1111;
+    margin-left: -200px;
+    margin-top: -120px;
+    line-height: 135px;
+    overflow: hidden;
+}
+.tips-content{
+    line-height: 20px;
+    font-size: 16px;
+    color: #333333;
+    padding: 20px 0px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+.layer-tips-btn span{
+    height: 28px;
+    width: 64px;
+    border: 1px solid #e0dfe3;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0px 5px;
+    font-size: 14px;
+    color: #999;
+}
+.layer-tips-btn{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.layer-tips-btn span:hover{
+    color: #f12020;
+    border: 1px solid #f12020;
+    cursor: pointer;
+}

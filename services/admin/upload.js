@@ -33,7 +33,7 @@ module.exports=function(req,callBack){
             admin_id:1,
             article_author:'vvey',
             article_type_id:typeId,
-            number:0
+            views:0
         });
         newArticle=yield  newArticle.save();
         callBack(null,[{status:true,id:newArticle.id}])
