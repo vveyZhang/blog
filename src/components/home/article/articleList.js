@@ -74,7 +74,6 @@ export class HomeArticleList extends React.Component{
                 typeId:nextProps.params.type
             }
         }).then(data=>{
-            console.log(data)
             if(data.length==0)this.setState({
                 nothing:true
             });

@@ -24,7 +24,6 @@ export class ArticleLfet extends React.Component{
                 range:'all'
             }
         }).then(data=>{
-            console.log(data)
             this.setState({
                 hot:data.response
             })

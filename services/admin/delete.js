@@ -16,7 +16,7 @@ module.exports=function(req,callBack){
                 }
             });
             oldArticleType=article.article_type;
-            article.destroy();
+            yield article.destroy();
             var newArticle=yield Article.findAll({
                 where:{
                     article_type:oldArticleType
