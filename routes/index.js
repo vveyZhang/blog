@@ -123,10 +123,15 @@ module.exports= function (app) {
              }
          });
             var views=parseInt(article.views)+1;
-            article.update({
+            Article.update({
                 views:views
+            },{
+                where:{
+                    id:id
+                }
             })
         }).catch(function(error){
+
             console.log(error)
         });
         next()
