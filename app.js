@@ -8,10 +8,11 @@ var bodyParser = require('body-parser');
 var helmet = require('helmet');
 var routes = require('./routes/index');
 var BCrypt=require('bcryptjs');
-
+var favicon = require('express-favicon');
 var app = express();
 var log = require("./tools/logHelper");
 log.use(app);
+app.use(favicon(__dirname + '/src/favicon.ico'));
 router = express.Router();
 // view engine setup
 app.use(helmet());
