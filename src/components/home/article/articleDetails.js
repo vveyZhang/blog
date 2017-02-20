@@ -22,7 +22,7 @@ function toggleDuoshuoComments(container,that){
         el.setAttribute('data-url', url);//必选参数
         el.setAttribute('data-title', that.state.article.article_title);//可选参数
         DUOSHUO.EmbedThread(el);
-        $("#comments").append(el);
+        $("#comments").html(el);
 
 
     })
