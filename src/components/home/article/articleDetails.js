@@ -13,7 +13,7 @@ function getArticle(id,that){
     })
 }
 function toggleDuoshuoComments(container,that){
-    $(document).ready(function(){
+    $(window).load(function(){
 
         var url='http://'+window.location.hostname+'/home/article/'+that.state.article.id;
         $("#comments").empty();
@@ -22,8 +22,9 @@ function toggleDuoshuoComments(container,that){
         el.setAttribute('data-url', url);//必选参数
         el.setAttribute('data-title', that.state.article.article_title);//可选参数
         DUOSHUO.EmbedThread(el);
-        $("#comments").html(el);
 
+        $("#comments").html(el);
+        console.log($("#comments"));
 
     })
 
