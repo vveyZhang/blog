@@ -66,6 +66,7 @@ export class ArticlePush extends React.Component{
             this.setState({
                 error:'文章信息不完善，请继续填写'
             })
+			return;
         };
         var that=this;
         this.setState({
