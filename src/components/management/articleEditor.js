@@ -111,6 +111,8 @@ export class ArticleEditor extends React.Component{
 			return
 
         };
+        console.log(this.state.editor)
+        return
         this.setState({
             isPending:true
         });

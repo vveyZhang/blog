@@ -67,8 +67,10 @@ export class ArticlePush extends React.Component{
                 error:'文章信息不完善，请继续填写'
             });
             console.log(this.state.editor)
+            return
 
         };
+        return
         var that=this;
         this.setState({
             isPending:true
