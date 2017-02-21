@@ -99,7 +99,9 @@ export class ArticleEditor extends React.Component{
     getEditor=(e)=>{
         this.setState({
             content:editor.getData()
-        })
+        });
+        console.log(editor.getData())
+        console.log(this.state.editor)
     }
     uploadArticle=(e)=>{
         if(this.state.isPending)return;
@@ -162,8 +164,8 @@ export class ArticleEditor extends React.Component{
                 <div className="ArticleEditor-title ArticleEditor-class"><input ref='type' onChange={this.getType.bind(this)} type="text" placeholder="类别"/></div>
                 <div className="ArticleEditor-title"><input type="text"  ref='title' onChange={this.getTitle.bind(this)}  placeholder="请输入标题"/></div>
                 <div className="ArticleEditor-content"  dangerouslySetInnerHTML={{__html: this.state.content}}></div>
-                <div className="article-submit" onClick={this.uploadArticle}>提交</div>
-                <textarea  className="ckeditor"  onChange={this.getEditor} id="editorArticle"></textarea>
+                <div className="article-submit" onClick={this.uploadArticle.bind(this)}>提交</div>
+                <textarea  className="ckeditor"  onChange={this.getEditor.bind(this)} id="editorArticle"></textarea>
             </div>
         )
     }

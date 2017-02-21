@@ -56,9 +56,10 @@ export class ArticlePush extends React.Component{
         });
     }
     getEditor=(e)=>{
+
         this.setState({
             editor:editor.getData()
-        })
+        });
     }
     uploadArticle=(e)=>{
         if(this.state.isPending)return;
@@ -67,7 +68,6 @@ export class ArticlePush extends React.Component{
                 error:'文章信息不完善，请继续填写'
             });
             return
-
         };
         var that=this;
         this.setState({
@@ -119,8 +119,8 @@ export class ArticlePush extends React.Component{
                 <div className="ArticleEditor-title ArticleEditor-class"><input onChange={this.getType.bind(this)} type="text" placeholder="类别"/></div>
                 <div className="ArticleEditor-title"><input type="text"  onChange={this.getTitle.bind(this)}  placeholder="请输入标题"/></div>
                 <div className="ArticleEditor-content" dangerouslySetInnerHTML={{__html: this.state.editor}}></div>
-                <div className="article-submit" onClick={this.uploadArticle}>提交</div>
-                <textarea  className="ckeditor"  onChange={this.getEditor} id="editorArticle"></textarea>
+                <div className="article-submit" onClick={this.uploadArticle.bind(this)}>提交</div>
+                <textarea  className="ckeditor"  onChange={this.getEditor.bind(this)} id="editorArticle"></textarea>
             </div>
         )
     }
