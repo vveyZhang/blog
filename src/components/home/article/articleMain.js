@@ -1,6 +1,7 @@
 import React from 'react';
 import {ArticleLfet} from './articleLeft.js'
 import {Header} from '../header.js';
+import {Footer} from '../footer.js';
 import $ from 'jquery'
 export class HomeArticleMain extends React.Component{
     componentDidMount(){
@@ -22,13 +23,7 @@ export class HomeArticleMain extends React.Component{
                     </div>
                 </div>
             </div>
-            <div id="site-footer">
-                <div className="">
-                    <div className="col-md-12">
-                        <p className="copyright">&copy; 2017 vveyzhang.com  </p>
-                    </div>
-                </div>
-            </div>
+            <Footer></Footer>
         </div>
         )
     }

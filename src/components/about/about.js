@@ -4,6 +4,7 @@
 import React from 'react';
 import $ from 'jquery';
 import {Header} from '../home/header.js';
+import {Footer} from '../home/footer.js';
 export class About extends React.Component{
 
     componentDidMount(){
@@ -33,13 +34,7 @@ export class About extends React.Component{
                             </div>
                         </div>
                     </div>
-                <div id="site-footer">
-                    <div className="">
-                        <div className="col-md-12">
-                            <p className="copyright">&copy; 2017 vveyzhang.com  </p>
-                        </div>
-                    </div>
-                </div>
+                <Footer></Footer>
             </div>
         )
     }

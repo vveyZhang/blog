@@ -591,3 +591,37 @@ body{font-family:"\5FAE\8F6F\96C5\9ED1","Microsoft YaHei",sans-serif;font-size:1
     border: 1px solid #f12020;
     cursor: pointer;
 }
+/*404*/
+.NotFound-container{
+    width: 600px;
+    margin: 0px auto;
+    height: 490px;
+}
+.NotFound-pic{
+    display: block;
+    margin: 0px auto 26px auto;
+    padding-top: 76px;
+}
+.NotFound-tips{
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #999999;
+    margin-bottom: 50px;
+}
+.NotFound-back{
+    display: block;
+    width: 128px;
+    height: 33px;
+    border: 1px solid #e5e5e5;
+    line-height: 33px;
+    font-size: 16px;
+    color: #999999;
+    text-align: center;
+    margin: 0px auto;
+}
+.NotFound-back:hover{
+    border: 1px solid #f12020;
+    color: #f12020;
+}

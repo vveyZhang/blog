@@ -4,6 +4,7 @@
 import React from 'react';
 import $ from 'jquery';
 import {Header} from './header';
+import {Footer} from './footer.js';
 import {ArticleLfet} from './article/articleLeft.js'
 import {HomeArticleItem} from './article/articleItem.js'
 export class Home extends React.Component{
@@ -99,13 +100,7 @@ export class Home extends React.Component{
                         </div>
                     </div>
                 </div>
-                <div id="site-footer">
-                    <div className="">
-                        <div className="col-md-12">
-                            <p className="copyright">&copy; 2017 vveyzhang.com  </p>
-                        </div>
-                    </div>
-                </div>
+                <Footer></Footer>
             </div>
         )
     }

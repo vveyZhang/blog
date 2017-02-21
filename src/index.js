@@ -21,7 +21,8 @@ import {About} from './components/about/about.js';
 import {HomeArticleMain} from './components/home/article/articleMain.js';
 import {HomeArticleList} from './components/home/article/articleList.js';
 import {HomeArticleDetails} from './components/home/article/articleDetails.js';
-//reflux引入
+import {NotFound} from './components/404Page.js'
+ //reflux引入
 import actions from './actions/manageAction';
 import appStores from './stores/manageStores';
 
@@ -42,10 +43,10 @@ var routes=<Route path="/" component={App}>
                     <Route path="list/:type" component={HomeArticleList}/>
                     <Route path="article/:id" component={HomeArticleDetails}/>
                 </Route>
+                <Route path="*" component={NotFound}/>
               </Route>;
 ReactDOM.render((
     <Router history={browserHistory} routes={routes} />
 ), document.getElementById('helloWeek'))
 //<IndexRedirect to="/home" />
 
-//<Route path="*" component={Home}/>

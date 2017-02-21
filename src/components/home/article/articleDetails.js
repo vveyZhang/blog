@@ -14,17 +14,15 @@ function getArticle(id,that){
 }
 function toggleDuoshuoComments(container,that){
     window.onload=function(){
-        console.log('开始');
         var url='http://'+window.location.hostname+'/home/article/'+that.state.article.id;
         document.getElementById('comments').innerHTML="";
         var el = document.createElement('div');//该div不需要设置class="ds-thread"
-        el.setAttribute('data-thread-key', that.state.article.id);//必选参数
-        el.setAttribute('data-url', url);//必选参数
-        el.setAttribute('data-title', that.state.article.article_title);//可选参数
+        el.setAttribute('data-thread-key', that.state.article.id);//必选参�?
+        el.setAttribute('data-url', url);//必选参�?
+        el.setAttribute('data-title', that.state.article.article_title);//可选参�?
         DUOSHUO.EmbedThread(el);
-        console.log('可以');
+      ;
         document.getElementById('comments').appendChild(el);
-        console.log($('#comments'));
     }
 
 

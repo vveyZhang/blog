@@ -9,6 +9,11 @@ var Article=db.Article;
 //var salt=bcrypt.genSaltSync(5);
 //var pass = bcrypt.hashSync(psw, salt);
 module.exports= function (app) {
+    app.get('/out',function(req,res){
+        req.session.username=null;
+        req.session.userpw=null;
+        res.redirect('/login');
+    });
     app.get('/admin',function(req,res){
         if(!req.session.username){
             res.redirect('/login');
