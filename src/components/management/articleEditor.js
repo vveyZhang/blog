@@ -103,16 +103,13 @@ export class ArticleEditor extends React.Component{
     }
     uploadArticle=(e)=>{
         if(this.state.isPending)return;
-        if(this.state.title==""||this.state.type==""||this.state.editor==""){
+        if(this.state.title==""||this.state.type==""||this.state.editor==""||this.state.editor==undefined){
             this.setState({
                 error:'文章信息不完善，请继续填写'
             });
-            console.log(this.state.editor)
 			return
 
         };
-        console.log(this.state.editor)
-        return
         this.setState({
             isPending:true
         });
