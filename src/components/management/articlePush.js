@@ -65,8 +65,9 @@ export class ArticlePush extends React.Component{
         if(this.state.title==""||this.state.type==""||this.state.editor==""){
             this.setState({
                 error:'文章信息不完善，请继续填写'
-            })
-			return;
+            });
+            console.log(this.state.editor)
+			return
         };
         var that=this;
         this.setState({
