@@ -19,15 +19,15 @@ export class ArticleEditor extends React.Component{
             toolbar :
                 [
                     ['Source','NumberedList','BulletedList','Outdent','Indent','Blockquote'],
-                    //加粗     斜体，     下划线      穿过线      下标字        上标字
+                    //加粗     斜体�?    下划�?     穿过�?     下标�?       上标�?
                     ['Bold','Italic','Underline','Strike','Subscript','Superscript'],
                     // 数字列表          实体列表            减小缩进    增大缩进
                     ['NumberedList','BulletedList','-','Outdent','Indent'],
-                    //左对 齐             居中对齐          右对齐          两端对齐
+                    //左对 �?            居中对齐          右对�?         两端对齐
                     ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-                    //超链接  取消超链接 锚点
+                    //超链�? 取消超链�?锚点
                     ['Link','Unlink'],
-                    //图片    flash    表格       水平线            表情       特殊字符        分页符
+                    //图片    flash    表格       水平�?           表情       特殊字符        分页�?
                     ['Image','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
                     '/',
                     // 样式       格式      字体    字体大小
@@ -105,10 +105,12 @@ export class ArticleEditor extends React.Component{
         if(this.state.isPending)return;
         if(this.state.title==""||this.state.type==""||this.state.editor==""){
             this.setState({
-                error:'文章信息不完善，请继续填写'
-            })；
-			return;
+                error:'文章信息不完善，请继续填�?
+            });
+console.log(this.state.editor);
+	return;
         };
+return;
         this.setState({
             isPending:true
         });
@@ -134,7 +136,7 @@ export class ArticleEditor extends React.Component{
                     return;
                 }
                 that.setState({
-                    error:'上传失败,请刷新页面',
+                    error:'上传失败,请刷新页�?,
                     isPending:false
                 })
             },
@@ -159,7 +161,7 @@ export class ArticleEditor extends React.Component{
             <div className="ArticleEditor">
                 <TipsLayer tips={this.state.error||this.state.tips} toggle={this.hiddenTips} ></TipsLayer>
                 <div className="ArticleEditor-title ArticleEditor-class"><input ref='type' onChange={this.getType.bind(this)} type="text" placeholder="类别"/></div>
-                <div className="ArticleEditor-title"><input type="text"  ref='title' onChange={this.getTitle.bind(this)}  placeholder="请输入标题"/></div>
+                <div className="ArticleEditor-title"><input type="text"  ref='title' onChange={this.getTitle.bind(this)}  placeholder="请输入标�?/></div>
                 <div className="ArticleEditor-content"  dangerouslySetInnerHTML={{__html: this.state.content}}></div>
                 <div className="article-submit" onClick={this.uploadArticle}>提交</div>
                 <textarea  className="ckeditor"  onChange={this.getEditor} id="editorArticle"></textarea>
