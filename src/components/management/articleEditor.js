@@ -19,15 +19,15 @@ export class ArticleEditor extends React.Component{
             toolbar :
                 [
                     ['Source','NumberedList','BulletedList','Outdent','Indent','Blockquote'],
-                    //加粗     斜体，     下划线      穿过线      下标字        上标字
+                    //加粗     斜体�?    下划�?     穿过�?     下标�?       上标�?
                     ['Bold','Italic','Underline','Strike','Subscript','Superscript'],
                     // 数字列表          实体列表            减小缩进    增大缩进
                     ['NumberedList','BulletedList','-','Outdent','Indent'],
-                    //左对 齐             居中对齐          右对齐          两端对齐
+                    //左对 �?            居中对齐          右对�?         两端对齐
                     ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-                    //超链接  取消超链接 锚点
+                    //超链�? 取消超链�?锚点
                     ['Link','Unlink'],
-                    //图片    flash    表格       水平线            表情       特殊字符        分页符
+                    //图片    flash    表格       水平�?           表情       特殊字符        分页�?
                     ['Image','Table','HorizontalRule','Smiley','SpecialChar','PageBreak'],
                     '/',
                     // 样式       格式      字体    字体大小
@@ -109,6 +109,7 @@ export class ArticleEditor extends React.Component{
             });
             console.log(this.state.editor)
 			return
+
         };
         this.setState({
             isPending:true
@@ -135,7 +136,7 @@ export class ArticleEditor extends React.Component{
                     return;
                 }
                 that.setState({
-                    error:'上传失败,请刷新页面',
+                    error:'上传失败请，请刷新页面',
                     isPending:false
                 })
             },
@@ -154,7 +155,7 @@ export class ArticleEditor extends React.Component{
                 error:null
             });
         }
-    }
+    };
     render(){
         return(
             <div className="ArticleEditor">
