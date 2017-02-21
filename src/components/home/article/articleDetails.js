@@ -13,7 +13,6 @@ function getArticle(id,that){
     })
 }
 function toggleDuoshuoComments(container,that){
-    window.onload=function(){
         var url='http://'+window.location.hostname+'/home/article/'+that.state.article.id;
         document.getElementById('comments').innerHTML="";
         var el = document.createElement('div');//该div不需要设置class="ds-thread"
@@ -21,11 +20,7 @@ function toggleDuoshuoComments(container,that){
         el.setAttribute('data-url', url);//必选参�?
         el.setAttribute('data-title', that.state.article.article_title);//可选参�?
         DUOSHUO.EmbedThread(el);
-      ;
         document.getElementById('comments').appendChild(el);
-    }
-
-
 }
 export class HomeArticleDetails extends React.Component{
     state={
