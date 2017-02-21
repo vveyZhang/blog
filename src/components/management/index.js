@@ -13,6 +13,7 @@ export class Management extends React.Component{
         });
     }
     render(){
+        var outIn=window.location.hostname+"/out"
         return(
             <div className="management-body" id="management">
                 <div className="management-left noselect" >
@@ -25,7 +26,7 @@ export class Management extends React.Component{
                         <ul>
                             <li><Link activeClassName="cur" to="/admin/articlelist/">全部文章</Link></li>
                             <li><Link activeClassName="cur" to="/admin/push">发表文章</Link></li>
-                            <li><Link  to="/out" activeClassName="cur">退出</Link></li>
+                            <li><a  href={outIn}>退出</a></li>
                         </ul>
                     </nav>
                 </div>
