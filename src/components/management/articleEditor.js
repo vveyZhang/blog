@@ -79,7 +79,6 @@ export class ArticleEditor extends React.Component{
             });
 
 
-
         }).catch(function(err){
             console.log(err)
         });
@@ -100,12 +99,10 @@ export class ArticleEditor extends React.Component{
         this.setState({
             content:editor.getData()
         });
-        console.log(editor.getData())
-        console.log(this.state.editor)
     }
     uploadArticle=(e)=>{
         if(this.state.isPending)return;
-        if(this.state.title==""||this.state.type==""||this.state.editor==""||this.state.editor==undefined){
+        if(this.state.title==""||this.state.type==""||this.state.content==""||this.state.content==undefined){
             this.setState({
                 error:'文章信息不完善，请继续填写'
             });
