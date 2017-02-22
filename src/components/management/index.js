@@ -13,7 +13,7 @@ export class Management extends React.Component{
         });
     }
     render(){
-        var outIn=window.location.hostname+"/out"
+        var outIn="http://"+window.location.hostname+"/out";
         return(
             <div className="management-body" id="management">
                 <div className="management-left noselect" >
