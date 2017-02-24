@@ -14,7 +14,7 @@ module.exports= function (app) {
         req.session.userpw=null;
         res.redirect('/login');
     });
-    app.get('/admin',function(req,res){
+    app.get('/admin',function(req,res,next){
         if(!req.session.username){
             res.redirect('/login');
             return;
@@ -36,7 +36,7 @@ module.exports= function (app) {
             }
             res.redirect('/login');
         }).catch(function(error){
-            console.log(error)
+            console.log(error);
             res.location('/login');
         })
     });
