@@ -43,8 +43,9 @@ export class Home extends React.Component{
         }).catch(err=>console.log(err));
 
         $(window).on('scroll',function(){
-            if(!that.state.ready)return //页面数据加载我完成
+            if(!that.state.ready)return;//页面数据加载我完成
             if(that.state.nothing)return;//如果页面没有数据
+            if(that.state.loading)return;//如果在加载数据
             var ch=$(window).height();
             var dh=$(document).height();
             var top=$(window).scrollTop();

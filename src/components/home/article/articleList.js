@@ -35,11 +35,13 @@ export class HomeArticleList extends React.Component{
         $(window).on('scroll',function(){
             if(!that.state.ready)return; //页面数据加载我完成
             if(that.state.nothing)return;//如果页面没有数据
+            if(that.state.loading)return;//如果在加载数据
             var ch=$(window).height();
             var dh=$(document).height();
             var top=$(window).scrollTop();
-            console.log(that.state.ready+"初始状态");
-            console.log(top+ch>=dh);
+            console.log(top+ch);
+            console.log(top);
+
             if(top+ch>=dh){
                 that.setState({
                     loading:true,
