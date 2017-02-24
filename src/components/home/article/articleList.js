@@ -38,13 +38,11 @@ export class HomeArticleList extends React.Component{
             var ch=$(window).height();
             var dh=$(document).height();
             var top=$(window).scrollTop();
-            console.log(that.state.ready+"初始状态");
             if(top+ch>=dh){
                 that.setState({
                     loading:true,
                     page:that.state.page+1
                 });
-                console.log(that.state.loading+"是否加载");
                 $.ajax({
                     type:'get',
                     url:'/handle/home/findtype',
@@ -53,7 +51,6 @@ export class HomeArticleList extends React.Component{
                         typeId:that.state.typeId
                     },
                     success:function(data){
-                        console.log(data)
                         var articles=data;
                         for (let article of that.state.articleList){
                             articles.push(article)
