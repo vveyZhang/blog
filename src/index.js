@@ -43,6 +43,7 @@ var routes=<Route path="/" component={App}>
                     <Route path="list/:type" component={HomeArticleList}/>
                     <Route path="article/:id" component={HomeArticleDetails}/>
                 </Route>
+                <Route path="notFound" component={NotFound}/>
                 <Route path="*" component={NotFound}/>
               </Route>;
 ReactDOM.render((

@@ -7,7 +7,8 @@ export class HomeArticleList extends React.Component{
         articleList:[],
         page:1,
         nothing:false,
-        loading:false
+        loading:false,
+        ready:false
     };
     componentDidMount(){
         var that=this;
@@ -19,19 +20,25 @@ export class HomeArticleList extends React.Component{
                 typeId:that.state.typeId
             }
         }).then(data=>{
-            if(data.length==0)this.setState({
-                nothing:true
-            });
+
+            if(data.length==0){
+                this.setState({
+                    nothing:true
+                });
+                return;
+            }
             that.setState({
-                articleList:data
+                articleList:data,
+                ready:true
             })
         }).catch(err=>console.log(err));
         $(window).on('scroll',function(){
+            if(!that.state.ready)return //页面数据加载我完成
+            if(that.state.nothing)return;//如果页面没有数据
             var ch=$(window).height();
             var dh=$(document).height();
             var top=$(window).scrollTop();
             if(top+ch==dh){
-                if(that.state.nothing)return
                 that.setState({
                     loading:true,
                     page:that.state.page+1
@@ -85,6 +92,7 @@ export class HomeArticleList extends React.Component{
     render(){
         return(
             <div className='padding-b'>
+                <p  style={{display:this.state.nothing?'block':'none'}} className='nothing'>没与相关文章</p>
                 {
                     this.state.articleList.map((item,key)=>{
                         return(

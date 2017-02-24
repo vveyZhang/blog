@@ -1,10 +1,15 @@
 import React from 'react';
-import $ from 'jquery'
+import $ from 'jquery';
+import {browserHistory} from 'react-router'
 function getArticle(id,that){
     $.ajax({
         type:'get',
         url:'/handle/home/article/'+id,
         success:function(data){
+            if(!data){
+                browserHistory.replace('/notFound');
+                return;
+            };
             that.setState({
                 article:data
             });
@@ -16,9 +21,9 @@ function toggleDuoshuoComments(container,that){
         var url='http://'+window.location.hostname+'/home/article/'+that.state.article.id;
         document.getElementById('comments').innerHTML="";
         var el = document.createElement('div');//该div不需要设置class="ds-thread"
-        el.setAttribute('data-thread-key', that.state.article.id);//必选参�?
-        el.setAttribute('data-url', url);//必选参�?
-        el.setAttribute('data-title', that.state.article.article_title);//可选参�?
+        el.setAttribute('data-thread-key', that.state.article.id);//必选?
+        el.setAttribute('data-url', url);//必选?
+        el.setAttribute('data-title', that.state.article.article_title);//可选?
         DUOSHUO.EmbedThread(el);
         document.getElementById('comments').appendChild(el);
 }

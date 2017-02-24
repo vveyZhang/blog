@@ -13,13 +13,14 @@ export class Home extends React.Component{
         articleList:[],
         page:1,
         loading:false,
-        nothing:false
+        nothing:false,
+        ready:false
     };
     componentDidMount(){
 
         $('.padding-bottom').css({
             'min-height':$(window).height()
-        })
+        });
         var that=this;
         $.ajax({
             type:'get',
@@ -29,15 +30,21 @@ export class Home extends React.Component{
                 keyword:that.state.keyword
             }
         }).then(data=>{
-            if(data.length==0)this.setState({
-                nothing:true
-            });
+            if(data.length==0){
+                this.setState({
+                    nothing:true
+                });
+                return;
+            }
             this.setState({
-                articleList:data
+                articleList:data,
+                ready:true
             })
         }).catch(err=>console.log(err));
 
         $(window).on('scroll',function(){
+            if(!that.state.ready)return //页面数据加载我完成
+            if(that.state.nothing)return;//如果页面没有数据
             var ch=$(window).height();
             var dh=$(document).height();
             var top=$(window).scrollTop();
