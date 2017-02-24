@@ -40,7 +40,7 @@ export class HomeArticleList extends React.Component{
             var dh=$(document).height();
             var top=$(window).scrollTop();
             console.log(top+ch);
-            console.log(top);
+            console.log(dh);
             if(top+ch>=dh){
                 that.setState({
                     loading:true,
