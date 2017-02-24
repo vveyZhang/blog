@@ -33,16 +33,19 @@ export class HomeArticleList extends React.Component{
             })
         }).catch(err=>console.log(err));
         $(window).on('scroll',function(){
-            if(!that.state.ready)return //页面数据加载我完成
+            if(!that.state.ready)return; //页面数据加载我完成
             if(that.state.nothing)return;//如果页面没有数据
             var ch=$(window).height();
             var dh=$(document).height();
             var top=$(window).scrollTop();
+            console.log(that.state.ready);
+
             if(top+ch==dh){
                 that.setState({
                     loading:true,
                     page:that.state.page+1
                 });
+                console.log(that.state.loading);
                 $.ajax({
                     type:'get',
                     url:'/handle/home/findtype',
@@ -51,6 +54,7 @@ export class HomeArticleList extends React.Component{
                         typeId:that.state.typeId
                     },
                     success:function(data){
+                        console.log(data)
                         var articles=data;
                         for (let article of that.state.articleList){
                             articles.push(article)
