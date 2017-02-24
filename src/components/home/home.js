@@ -49,7 +49,7 @@ export class Home extends React.Component{
             var ch=$(window).height();
             var dh=$(document).height();
             var top=$(window).scrollTop();
-            if(top+ch==dh){
+            if(top+ch+10>=dh){
                 if(that.state.nothing)return;
                 that.setState({
                     loading:true,
