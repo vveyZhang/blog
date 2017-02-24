@@ -39,6 +39,7 @@ export class HomeArticleList extends React.Component{
             var dh=$(document).height();
             var top=$(window).scrollTop();
             console.log(that.state.ready+"初始状态");
+            console.log(top+ch>=dh);
             if(top+ch>=dh){
                 that.setState({
                     loading:true,
