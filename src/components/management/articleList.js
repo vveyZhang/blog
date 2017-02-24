@@ -69,7 +69,7 @@ export class ArticleList extends React.Component{
         var id=this.state.listArticle.checkedId.join(',');
         var that=this;
         $.ajax({
-            type:'get',
+            type:'post',
             url:"/manage/admin/delete",
             data:{
                 id:id

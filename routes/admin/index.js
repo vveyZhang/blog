@@ -5,8 +5,8 @@ var Delete=require('./delete');
 var Details=require('./details');
 module.exports=function(app){
     app.get('/manage/admin/find',Find);
-    app.get('/manage/admin/change',Change);
+    app.post('/manage/admin/change',Change);
     app.post('/manage/admin/upload',Upload);
-    app.get('/manage/admin/delete',Delete);
+    app.post('/manage/admin/delete',Delete);
     app.get('/manage/admin/details/:id',Details);
 };

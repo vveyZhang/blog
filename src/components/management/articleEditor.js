@@ -115,7 +115,7 @@ export class ArticleEditor extends React.Component{
         var that=this;
         $.ajax({
             url:'/manage/admin/change',
-            type:'get',
+            type:'post',
             data:{
                 id:this.state.id,
                 title:this.state.title,

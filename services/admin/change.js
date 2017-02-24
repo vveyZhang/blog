@@ -5,10 +5,10 @@ var co=require("co");
 var Article=db.Article,
     ArticleType=db.ArticleType;
 module.exports=function(req,callBack){
-    var title=req.query.title,
-        type=req.query.type,
-        content=req.query.content,
-        articleId=req.query.id;
+    var title=req.body.title,
+        type=req.body.type,
+        content=req.body.content,
+        articleId=req.body.id;
     var newArticleType=false;
     var oldArticleType;
     co(function *(){

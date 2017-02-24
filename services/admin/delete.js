@@ -5,7 +5,7 @@ var co=require("co");
 var Article=db.Article,
     ArticleType=db.ArticleType;
 module.exports=function(req,callBack){
-    var arrayId=req.query.id.split(',');
+    var arrayId=req.body.id.split(',');
     var oldArticleType;
     co(function *(){
         for(var i=0;i<arrayId.length;i++){
