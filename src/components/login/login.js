@@ -5,6 +5,8 @@ import React from 'react';
 //import ReactDOM from 'ReactDOM';
 import $ from 'jquery'
 import {browserHistory} from 'react-router'
+
+
 //  用户登录信息
   var userInfor={
   userName:'',
@@ -148,8 +150,6 @@ import {browserHistory} from 'react-router'
     render: function () {
       return(
           <div className='user-password' >
-            <form action="" >
-            </form>
             <input type="password"  value={this.state.userPassword} onChange={this.handleChange}  placeholder='请输入密码' ref='userInput' onBlur={this.handleBluer} autoComplete="off"/>
           </div>
       )

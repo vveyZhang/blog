@@ -127,7 +127,7 @@ export class ArticleEditor extends React.Component{
                     that.setState({
                         tips:'修改成功',
                         isPending:false
-                    })
+                    });
                     setTimeout(function(){
                         browserHistory.replace('/admin/article/'+data[0].id)
                     },500);
