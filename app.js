@@ -26,7 +26,7 @@ app.use(session({
     resave:true,
     saveUninitialized:false,
     cookie:{
-        expires:1000*60*60*24 //过期时间设置(单位毫秒)
+        expires:1000*60*60*12 //过期时间设置(单位毫秒)
     }
 }));
 app.disable('view cache');

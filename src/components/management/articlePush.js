@@ -5,8 +5,7 @@ import {browserHistory} from 'react-router';
 var editor;
 export class ArticlePush extends React.Component{
     componentDidMount(){
-        editor=CKEDITOR.replace( 'editorArticle'       , {
-
+        editor=CKEDITOR.replace( 'editorArticle', {
             toolbar :
                 [
                     ['Source','NumberedList','BulletedList','Outdent','Indent','Blockquote'],
@@ -34,6 +33,16 @@ export class ArticlePush extends React.Component{
         editor.on( 'change', function(){
             _this.getEditor();
         })
+    };
+    componentWillUnmount(){
+        $.ajax({
+            url:"/manage/admin/details/"+8,
+            type:'get',
+            dataType:'json'
+        }).then(json=>{
+        }).catch(function(err){
+            console.log(err)
+        });
     };
     state={
         editor:'',
