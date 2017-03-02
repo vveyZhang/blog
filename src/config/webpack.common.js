@@ -1,10 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
-var ROOT_PATH = path.resolve(__dirname);
-var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
-var PUBLIC_PATH = path.resolve(ROOT_PATH, 'public');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+var helpers = require('./helpers');
 module.exports = {
     //页面入口文件配置
     entry: {
@@ -21,6 +18,7 @@ module.exports = {
     },
     //其它解决方案配置
     resolve: {
+        root: helpers.root('src'),
         extensions: ['', '.js', '.json','.css','html']
         //alias: {
         //    Home : './js/home.js',

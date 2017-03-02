@@ -1,8 +1,8 @@
 import Reflux from 'reflux';
-export let urlAction= Reflux.createActions([
+export let loginAction= Reflux.createActions([
     'getUrl',
     'clearUrl',
     'changeUser',
-    'changePW',
-    "focus",
+    'changePw',
+    'isComplete'
 ]);

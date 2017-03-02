@@ -1,6 +1,6 @@
 import Reflux from 'reflux';
 
-import {urlAction} from '../actions/urlAction.js';
+import {loginAction} from '../actions/loginAction.js';
 
 const loginInfor={
     url:null,
@@ -9,32 +9,35 @@ const loginInfor={
     userName:'',
     isPWErr:false,
     userPw:'',
-    loginErr:false
+    loginErr:false,
+    loginTips:false
+};
 
-}
-
-export const urlStore =Reflux.createStore({
+export const loginStore =Reflux.createStore({
     init(){
-        this.listenToMany(urlAction);
+        this.listenToMany(loginAction);
     },
     onGetUrl(url){
         this.url=url;
-        this.trigger(this.url)
+        this.trigger(loginInfor)
     },
     onClearUrl(){
         this.url=null;
-        this.trigger(this.url)
+        this.trigger(loginInfor)
     },
     onChangeUser(name){
         loginInfor.userName=name;
+        loginInfor.loginTips=false;
         if(name.length==0){
             loginInfor.isErr=true;
             loginInfor.errorInfor="用户名不能为空";
+            this.trigger(loginInfor);
             return;
         }
         if(name.length<4||name.length>20){
             loginInfor.isErr=true;
             loginInfor.errorInfor="用户名不能大于20或小于4个字符串";
+            this.trigger(loginInfor);
             return;
         }
         var regE="^[a-zA-Z]+$";
@@ -43,24 +46,36 @@ export const urlStore =Reflux.createStore({
         if(!result){
             loginInfor.isErr=true;
             loginInfor.errorInfor="用户名只能为字母";
+            this.trigger(loginInfor)
             return;
         }
         loginInfor.isErr=false;
         loginInfor.errorInfor='';
+        this.trigger(loginInfor);
 
 
     },
     onChangePw(pw){
         loginInfor.userPw=pw;
+        loginInfor.loginTips=false;
         if(pw.length==0){
-            loginInfor.isPWErr=true;
-            return
-        }
-        
+            loginInfor.isPWErr=true
+        }else{
+            loginInfor.isPWErr=false;
+        };
+        this.trigger(loginInfor)
     },
-    onFocusUser(){},
-    onFocusPw(){}
-
+    onIsComplete(){
+        if(loginInfor.userName==""||loginInfor.userPw==""){
+            loginInfor.loginTips=true;
+            this.trigger(loginInfor)
+            return false
+        }
+        return true
+    },
+    getLogin(){
+        return loginInfor;
+    }
 });
 
 
