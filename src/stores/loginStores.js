@@ -11,6 +11,7 @@ const loginInfor={
     userPw:'',
     loginErr:false,
     loginTips:false
+
 };
 
 export const loginStore =Reflux.createStore({
@@ -24,6 +25,11 @@ export const loginStore =Reflux.createStore({
     onClearUrl(){
         this.url=null;
         this.trigger(loginInfor)
+    },
+    onLoginFail(){
+        loginInfor.loginErr=true;
+        this.trigger(loginInfor.loginErr)
+
     },
     onChangeUser(name){
         loginInfor.userName=name;
@@ -66,12 +72,12 @@ export const loginStore =Reflux.createStore({
         this.trigger(loginInfor)
     },
     onIsComplete(){
-        if(loginInfor.userName==""||loginInfor.userPw==""){
+        if(loginInfor.userName==""||loginInfor.userPw=="")
             loginInfor.loginTips=true;
-            this.trigger(loginInfor)
-            return false
-        }
-        return true
+        else
+            loginInfor.loginTips=false;
+
+        this.trigger(loginInfor)
     },
     getLogin(){
         return loginInfor;

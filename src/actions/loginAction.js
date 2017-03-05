@@ -4,5 +4,6 @@ export let loginAction= Reflux.createActions([
     'clearUrl',
     'changeUser',
     'changePw',
-    'isComplete'
+    'isComplete',
+    "loginFail"
 ]);

@@ -44,8 +44,9 @@ var  Login=React.createClass({
     }
   },
   signIn:function(){
-    if(!loginAction.isComplete())return;
+    loginAction.isComplete()
     if(this.state.login.isErr)return;
+    if(this.state.login.loginTips)return;
     var _this=this;
     $.ajax({
       url: "/manage/login",
@@ -56,12 +57,15 @@ var  Login=React.createClass({
       },
       success:function(data){
         if(!data.status){
-          _this.setState({
-            loginState:false
-          });
+          loginAction.loginFail();
           return;
         }
-        browserHistory.replace('/admin/articlelist')
+        if(this.state.login.url==null){
+          browserHistory.replace('/admin/articlelist');
+          return;
+        }
+        browserHistory.replace(this.state.login.url);
+
       },
       error:function(data,stauts,e){
         alert('系统错误')
@@ -70,35 +74,15 @@ var  Login=React.createClass({
     });
   },
    handleClick: function () {
-     if(userInfor.userNameState==false||userInfor.userPasswordState==false) return;
-     var _this=this;
+
+     this.signIn()
 
    },
    handleKeydown: function (e) {
      var e = e || window.event;
      if(e.keyCode==13){
-       if(userInfor.userNameState==false||userInfor.userPasswordState==false) return;
-       $.ajax({
-         url: "/manage/login",
-         type: "POST",
-         data: {
-           username: userInfor.userName,
-           userpw: userInfor.userPassword
-         },
-         success:function(data){
-           if(!data.status){
-             _this.setState({
-               loginState:false
-             });
-             return;
-           }
-           browserHistory.replace('/admin/articlelist')
-         },
-         error:function(data,stauts,e){
-           alert('系统错误');
-           console.log(data);
-         }
-       });
+       this.signIn()
+
      }
    },
    render: function () {
