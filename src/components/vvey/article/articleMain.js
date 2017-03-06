@@ -4,11 +4,7 @@ import {Header} from '../header.js';
 import {Footer} from '../footer.js';
 import $ from 'jquery'
 export class HomeArticleMain extends React.Component{
-    componentDidMount(){
-        $('.padding-bottom').css({
-            'min-height':$(window).height()
-        })
-    }
+    componentDidMount(){    }
     render(){
         return(
         <div className="padding-bottom">
@@ -27,5 +23,4 @@ export class HomeArticleMain extends React.Component{
         </div>
         )
     }
-
 }

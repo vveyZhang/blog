@@ -10,8 +10,8 @@ export class ArticleLfet extends React.Component{
     componentDidMount(){
         $.get({url:'/handle/home/title'}).then(data=>{
             this.setState({
-                category:data.category,
-                newest:data.newest
+                category:data.category?data.category:[],
+                newest:data.newest?data.category:[]
             })
 
         }).catch(err=>console.log(err));
@@ -25,7 +25,7 @@ export class ArticleLfet extends React.Component{
             }
         }).then(data=>{
             this.setState({
-                hot:data.response
+                hot:data.response?data.response:[]
             })
         }).catch(err=>console.log(err))
     }

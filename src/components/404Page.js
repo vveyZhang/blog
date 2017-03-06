@@ -1,5 +1,5 @@
-import {Header} from './home/header.js';
-import {Footer} from './home/footer.js';
+import {Header} from './vvey/header.js';
+import {Footer} from './vvey/footer.js';
 import React from 'react';
 import {Link} from 'react-router'
 export class NotFound extends React.Component{

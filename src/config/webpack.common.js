@@ -5,7 +5,7 @@ var helpers = require('./helpers');
 module.exports = {
     //页面入口文件配置
     entry: {
-        index:'./src/index.js'
+        index:helpers.root('index.js')
     },
     module: {
         //加载器配置
@@ -19,7 +19,7 @@ module.exports = {
     //其它解决方案配置
     resolve: {
         root: helpers.root('src'),
-        extensions: ['.js', '.json','.css','html']
+        extensions: ['','.js', '.json','.css','html']
         //alias: {
         //    Home : './js/home.js',
         //    Login : './js/login.js'
