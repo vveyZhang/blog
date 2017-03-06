@@ -19,7 +19,7 @@ module.exports = {
     //其它解决方案配置
     resolve: {
         root: helpers.root('src'),
-        extensions: ['', '.js', '.json','.css','html']
+        extensions: ['.js', '.json','.css','html']
         //alias: {
         //    Home : './js/home.js',
         //    Login : './js/login.js'
