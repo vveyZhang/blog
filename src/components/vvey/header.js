@@ -26,13 +26,19 @@ export class Header extends React.Component{
         if(e.keyCode==13)this.goSearch()
     }
     goSearch=(e)=>{
-       window.location="/home?keyword="+this.state.keyword
+        if(this.state.keyword==""){
+            alert('输入内容不能为空');
+            return
+        }
+        let keyword=this.state.keyword.length>50?this.state.keyword.slice(0,49):this.state.keyword
+       window.location="/home/search/"+keyword
     };
     componentDidMount(){
     }
     render(){
-        var home="http://"+window.location.hostname+'/home';
-        var about="http://"+window.location.hostname+'/about';
+        console.log(window.location);
+        var home="http://"+window.location.host+'/home';
+        var about="http://"+window.location.host+'/about';
         return(
             <div className="header-container">
                 <div id="site-header">
@@ -81,4 +87,4 @@ export class Header extends React.Component{
         )
     }
 }
-//ReactMixin.onClass(Left, Reflux.connect(homeStore,'show'));
+

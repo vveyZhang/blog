@@ -15,6 +15,9 @@ import {ArticleEditor} from './components/management/articleEditor.js';
 import {Vvey} from './components/vvey/index.js'
 import {Home} from './components/vvey/home.js'
 import {About} from './components/vvey/about.js'
+import {ArticleType} from './components/vvey/article/articleType.js'
+import {HomeArticleDetails} from './components/vvey/article/articleDetails.js'
+import {ArticleSearch} from './components/vvey/article/articleSearch.js'
 import {NotFound} from './components/404Page.js'
 
 export const routes=<Route path="/" component={App}>
@@ -29,6 +32,9 @@ export const routes=<Route path="/" component={App}>
     <Route path="login" component={Login}  />
     <Route path="/" component={Vvey} >
         <Route path="home" component={Home}>
+            <Route path="type/:id" component={ArticleType} />
+            <Route path="article/:id" component={HomeArticleDetails} />
+            <Route path="search/:keyword" component={ArticleSearch} />
         </Route>
         <Route path="about"  component={About} />
     </Route>

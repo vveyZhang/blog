@@ -9,9 +9,10 @@ export class ArticleLfet extends React.Component{
     };
     componentDidMount(){
         $.get({url:'/handle/home/title'}).then(data=>{
+            console.log(data)
             this.setState({
                 category:data.category?data.category:[],
-                newest:data.newest?data.category:[]
+                newest:data.newest?data.newest:[]
             })
 
         }).catch(err=>console.log(err));
@@ -30,7 +31,7 @@ export class ArticleLfet extends React.Component{
         }).catch(err=>console.log(err))
     }
     render(){
-        var host=window.location.hostname;
+        var host=window.location.host;
         return(
             <div style={{'paddingLeft':'25px'}}>
                 <div className="widget widget-recent-posts">
@@ -38,10 +39,10 @@ export class ArticleLfet extends React.Component{
                     <ul>
                         {
                             this.state.newest.map(function(item,key){
-                                var link="http://"+host+"/notes/article/"+item.id;
+                                var link="http://"+host+"/home/article/"+item.id;
                                 return(
                                     <li key={key}>
-                                        <a href={link}>{item.article_title} <span>[{item.views}]</span></a>
+                                        <a href={link}>{item.article_title} <span>[{item.views}] views</span></a>
                                     </li>
                                 )
                             })
@@ -54,10 +55,10 @@ export class ArticleLfet extends React.Component{
                     <ul>
                         {
                             this.state.hot.map(function(item,key){
-                                var link="http://"+host+"/notes/article/"+item.thread_key;
+                                var link="http://"+host+"/home/article/"+item.thread_key;
                                 return(
                                     <li key={key}>
-                                        <a href={link}>{item.title} <span>[{item.comments}]</span></a>
+                                        <a href={link}>{item.title} <span>[{item.comments}] comments</span></a>
                                     </li>
                                 )
                             })
@@ -70,7 +71,7 @@ export class ArticleLfet extends React.Component{
                         {
 
                             this.state.category.map(function(item,key){
-                                var link="/notes/list/"+item.id;
+                                var link="/home/type/"+item.id;
                                 return(
                                     <li key={key}>
                                         <Link activeClassName='cur' to={link}>{item.article_type}</Link>

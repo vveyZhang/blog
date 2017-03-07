@@ -8,7 +8,6 @@ import {Footer} from './footer.js';
 import {Home} from './home.js'
 export class Vvey extends React.Component{
     componentDidMount(){
-
         $('.padding-bottom').css({
             'min-height':$(window).height()
         });
