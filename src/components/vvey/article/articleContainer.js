@@ -69,7 +69,7 @@ export class ArticleContainer extends React.Component{
     componentWillReceiveProps(nextprops){
         this.getArticles(nextprops);
     };
-    getArticles(props=this){
+    getArticles(props=this.props){
         let url='/handle/home/find',data={
             page:1
         };
