@@ -28,7 +28,7 @@ export const loginStore =Reflux.createStore({
     },
     onLoginFail(){
         loginInfor.loginErr=true;
-        this.trigger(loginInfor.loginErr)
+        this.trigger(loginInfor)
 
     },
     onChangeUser(name){

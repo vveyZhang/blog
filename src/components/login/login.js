@@ -60,15 +60,15 @@ var  Login=React.createClass({
           loginAction.loginFail();
           return;
         }
-        if(this.state.login.url==null){
+        if(_this.state.login.url==null){
           browserHistory.replace('/admin/articlelist');
           return;
         }
-        browserHistory.replace(this.state.login.url);
-
+        browserHistory.replace(_this.state.login.url);
+        loginAction.clearUrl()
       },
       error:function(data,stauts,e){
-        alert('系统错误')
+        alert('系统错误');
         console.log(data);
       }
     });
@@ -103,6 +103,7 @@ var  Login=React.createClass({
                      <p>密码不能为空</p>
                    </div>
                    <div className="login-error" style={{display:this.state.login.loginErr?'block':'none'}}>
+
                      <p>账号或密码错误</p>
                    </div>
                    <div className="login-error" style={{display:this.state.login.loginTips?'block':'none'}}>

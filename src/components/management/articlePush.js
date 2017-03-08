@@ -29,10 +29,13 @@ export class ArticlePush extends React.Component{
                     ['Maximize','-']
                 ]
         });
+        if(localStorage.content){
+            editor.setData(localStorage.content);
+        }
         let _this=this;
         editor.on( 'change', function(){
             _this.getEditor();
-        })
+        });
     };
     componentWillUnmount(){
         $.ajax({
@@ -45,9 +48,9 @@ export class ArticlePush extends React.Component{
         });
     };
     state={
-        editor:'',
-        title:'',
-        type:'',
+        editor:localStorage.content,
+        title:localStorage.title,
+        type:localStorage.type,
         error:null,
         tips:null,
         isPending:false
@@ -57,19 +60,21 @@ export class ArticlePush extends React.Component{
         this.setState({
             title:e.target.value
         });
+        localStorage.title=e.target.value;
     }
     getType=(e)=>{
         var e=e||event;
         this.setState({
             type:e.target.value
         });
+        localStorage.type=e.target.value;
     }
     getEditor=(e)=>{
-
         this.setState({
             editor:editor.getData()
         });
-    }
+        localStorage.content=editor.getData();
+    };
     uploadArticle=(e)=>{
         if(this.state.isPending)return;
         if(this.state.title==""||this.state.type==""||this.state.editor==""||this.state.editor==undefined){
@@ -92,10 +97,11 @@ export class ArticlePush extends React.Component{
             },
             success:function(data){
                 if(data[0].status){
+                    localStorage.clear();
                     that.setState({
                         tips:'上传成功',
                         isPending:false
-                    })
+                    });
                     setTimeout(function(){
                         browserHistory.replace('/admin/article/'+data[0].id)
                     },500)
@@ -125,8 +131,8 @@ export class ArticlePush extends React.Component{
         return(
             <div className="ArticleEditor">
                 <TipsLayer tips={this.state.error||this.state.tips} toggle={this.hiddenTips} ></TipsLayer>
-                <div className="ArticleEditor-title ArticleEditor-class"><input onChange={this.getType.bind(this)} type="text" placeholder="类别"/></div>
-                <div className="ArticleEditor-title"><input type="text"  onChange={this.getTitle.bind(this)}  placeholder="请输入标题"/></div>
+                <div className="ArticleEditor-title ArticleEditor-class"><input onChange={this.getType.bind(this)} value={this.state.type} type="text" placeholder="类别"/></div>
+                <div className="ArticleEditor-title"><input type="text"  onChange={this.getTitle.bind(this)} value={this.state.title}  placeholder="请输入标题"/></div>
                 <div className="ArticleEditor-content" dangerouslySetInnerHTML={{__html: this.state.editor}}></div>
                 <div className="article-submit" onClick={this.uploadArticle.bind(this)}>提交</div>
                 <textarea  className="ckeditor"  onChange={this.getEditor.bind(this)} id="editorArticle"></textarea>

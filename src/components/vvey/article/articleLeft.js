@@ -9,7 +9,6 @@ export class ArticleLfet extends React.Component{
     };
     componentDidMount(){
         $.get({url:'/handle/home/title'}).then(data=>{
-            console.log(data)
             this.setState({
                 category:data.category?data.category:[],
                 newest:data.newest?data.newest:[]

@@ -36,7 +36,6 @@ export class Header extends React.Component{
     componentDidMount(){
     }
     render(){
-        console.log(window.location);
         var home="http://"+window.location.host+'/home';
         var about="http://"+window.location.host+'/about';
         return(
