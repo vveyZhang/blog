@@ -5,7 +5,7 @@ export class HomeArticleItem extends React.Component{
     render(){
         var article=this.props.article;
         var time=article.created_at.substring(0,10);
-        var link="http://"+window.location.hostname+"/notes/article/"+article.id;
+        var link="http://"+window.location.host+"/home/article/"+article.id;
         var content=this.props.article.article_content.replace(/<[^>]+>/g,"");
         content=content.replace(/&nbsp;/g,"");
         content=content.substring(0,200)+".......";
