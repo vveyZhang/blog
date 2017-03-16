@@ -34,13 +34,13 @@ export class ArticleContainer extends React.Component{
             }else{
                 data.keyword=this.props.keyword
             }
-            var that=this;
+            let that=this;
             $.ajax({
                 type:'get',
                 url:url,
                 data:data,
                 success:function(data){
-                    var articles=that.state.articleList;
+                    let articles=that.state.articleList;
                     if(data.length==0){
                         that.setState({
                             page:that.state.page-1
