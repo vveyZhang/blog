@@ -40,13 +40,13 @@ export class ArticleContainer extends React.Component{
                 url:url,
                 data:data,
                 success:function(data){
-                    var articles=data;
+                    var articles=that.state.articleList;
                     if(data.length==0){
                         that.setState({
                             page:that.state.page-1
                         })
                     }
-                    for (let article of that.state.articleList){
+                    for (let article of data){
                         articles.push(article)
                     }
                     setTimeout(function(){
