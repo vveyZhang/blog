@@ -45,7 +45,7 @@ export class HomeArticleDetails extends React.Component{
         var article=this.state.article;
         if(!article.article_title) return(<div></div>);
         var time=article.created_at.substring(0,10);
-        var link="http://"+window.location.hostname+"/notes/article/"+article.id;
+        var link="http://"+window.location.hostname+"/home/article/"+article.id;
         return(
             <div className="article-details">
                 <div className="entry-header">
