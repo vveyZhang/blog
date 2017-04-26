@@ -11,8 +11,8 @@ module.exports= function (req,callback){
             order:[['created_at','DESC']]
         });
         var articlesNew=yield Article.findAll({
-            limit:5,
-            order:[['created_at','DESC']],
+            limit:10,
+            order:[['views','DESC']],
             attributes: ['article_title','id','views']
         });
         var articlesNav={
