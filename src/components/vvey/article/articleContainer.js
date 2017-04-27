@@ -11,7 +11,9 @@ export class ArticleContainer extends React.Component{
     };
     componentDidMount(){
         this.getArticles();
-        $(window).on('scroll',this.turnPage)
+        $(window).on('scroll',function(){
+            setTimeout(()=>this.turnPage,20)
+        })
     }
     turnPage=(e)=>{
         if(!this.state.ready)return; //页面数据加载未完成

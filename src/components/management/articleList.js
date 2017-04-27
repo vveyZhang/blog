@@ -9,7 +9,6 @@ import {manageAction} from '../../actions/manageAction.js';
 import {manageStore} from '../../stores/manageStores.js'
 import {TipsLayer} from '../common/tipsLayer.js';
 import {WarnLayer} from '../common/warnLayer.js';
-
 export class ArticleList extends React.Component{
 
     state={
