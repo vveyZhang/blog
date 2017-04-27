@@ -15,7 +15,7 @@ export class Vvey extends React.Component{
     render(){
         return(
             <div className="padding-bottom">
-                <Header></Header>
+                <Header keyword={this.props.location.query.keyword}></Header>
                 {this.props.children ||<Home />}
                 <Footer></Footer>
             </div>

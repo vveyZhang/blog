@@ -3,12 +3,18 @@ import React from 'react';
 export class HomeArticleItem extends React.Component{
 
     render(){
+
         var article=this.props.article;
         var time=article.created_at.substring(0,10);
-        var link="http://"+window.location.host+"/home/article/"+article.id;
+
+        var link="/home/article/"+article.id;
         var content=this.props.article.article_content.replace(/<[^>]+>/g,"");
         content=content.replace(/&nbsp;/g,"");
         content=content.substring(0,200)+".......";
+        if(this.props.keyword){
+            const reg=new RegExp(this.props.keyword,'g')
+            content=content.replace(reg,'<span>'+this.props.keyword+'</span>')
+        }
         return(
             <div>
                 <div className="post">
@@ -27,7 +33,7 @@ export class HomeArticleItem extends React.Component{
                         </div>
                     </div>
                     <div className="entry-content clearfix">
-                        <p>{content}</p>
+                        <p dangerouslySetInnerHTML={{__html:content}}></p>
                     </div>
                 </div>
             </div>

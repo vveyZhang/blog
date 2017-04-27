@@ -31,9 +31,12 @@ export class Header extends React.Component{
             return
         }
         let keyword=this.state.keyword.length>50?this.state.keyword.slice(0,49):this.state.keyword
-       window.location="/home/search/"+keyword
+       window.location="/home/search?keyword="+keyword
     };
-    componentDidMount(){
+    componentWillReceiveProps(){
+        this.setState({
+            keyword:this.props.keyword
+        })
     }
     render(){
         var home="http://"+window.location.host+'/home';
@@ -65,7 +68,7 @@ export class Header extends React.Component{
                                 <a id="search-menu" onClick={this.searchToggle} href="javascript:void(0)"><span id="search-icon" className="ion-ios-search-strong"></span></a>
                                 <div id="search-form" className="search-form" style={{display:this.state.show?"block":"none"}}>
                                     <div id="searchform">
-                                            <input type="search"  ref='search' onKeyDown={this.keyDown.bind(this)} value={this.state.keyword} onChange={this.changeKeyword} placeholder="Search" required />
+                                            <input type="search"  ref='search' onKeyDown={this.keyDown.bind(this)} value={this.state.keyword} onChange={this.changeKeyword} placeholder={this.props.keyword||'Search'} required />
                                             <button  onClick={this.goSearch.bind(this)} type="submit" ><span className="ion-ios-search-strong"></span></button>
                                         </div>
                                     </div>

@@ -4,67 +4,33 @@ import $ from 'jquery'
 export class ArticleContainer extends React.Component{
     state={
         articleList:[],
+        url:"/handle/home/find",
         page:1,
         nothing:false,
         loading:false,
-        ready:false
+        ready:false,
+        noMore:false
     };
     componentDidMount(){
         this.getArticles();
         var that=this;
         $(window).on('scroll',()=>{
-            setTimeout(()=>this.turnPage(),20)
-        })
-    }
-    turnPage=(e)=>{
-        if(!this.state.ready)return; //页面数据加载未完成
-        if(this.state.nothing)return;//如果页面没有数据
-        if(this.state.loading)return;//如果在加载数据
-        let ch=$(window).height();
-        let dh=$(document).height();
-        let top=$(window).scrollTop();
-        if(top+ch+10>=dh){
-            this.setState({
-                loading:true,
-                page:this.state.page+1
-            });
-            let url='/handle/home/find',data={
-                page:this.state.page
-            };
-            if(this.props.typeId){
-                url='/handle/home/findtype';
-                data.typeId=this.props.typeId
-            }else{
-                data.keyword=this.props.keyword
+            if(!this.state.ready)return; //页面数据加载未完成
+            if(this.state.nothing)return;//如果页面没有数据
+            if(this.state.loading)return;//如果在加载数据
+            if(this.state.noMore)return;//如果在加载数据
+            let ch=$(window).height();
+            let dh=$(document).height();
+            let top=$(window).scrollTop();
+            if(top+ch+10>=dh){
+                this.setState({
+                    loading:true,
+                    page:this.state.page+1
+                });
+                this.getArticles();
             }
-            let that=this;
-            $.ajax({
-                type:'get',
-                url:url,
-                data:data,
-                success:function(data){
-                    let articles=that.state.articleList;
-                    if(data.length==0){
-                        that.setState({
-                            page:that.state.page-1
-                        })
-                    }
-                    for (let article of data){
-                        articles.push(article)
-                    }
-                    setTimeout(function(){
-                        that.setState({
-                            articleList:articles,
-                            loading:false
-                        })
-                    },500)
-                },
-                error:function(err){
-                    console.log(err)
-                }
-            });
-        }
 
+        })
     }
     componentWillUnmount() {
         $(window).off('scroll');
@@ -73,31 +39,48 @@ export class ArticleContainer extends React.Component{
         this.getArticles(nextprops);
     };
     getArticles(props=this.props){
-        let url='/handle/home/find',data={
-            page:1
+        let data={
+            page:this.state.page
         };
+        var that=this;
         if(props.typeId){
-            url='/handle/home/findtype';
+            this.setState({
+                url:"/handle/home/findtype"
+            });
             data.typeId=props.typeId
         }else{
             data.keyword=props.keyword
         }
         $.ajax({
-            url:url,
+            url:this.state.url,
             type:'get',
             data:data
         }).then(data=>{
             if(data.length==0){
-                this.setState({
-                    nothing:true,
-                    articleList:[]
-                });
+                if(this.state.page==1){
+                    that.setState({
+                        nothing:true,
+                        articleList:[]
+                    });
+                }else{
+                    that.setState({
+                        noMore:true,
+                        loading:false,
+                        page:that.state.page-1
+                    });
+                }
                 return;
             }
-            this.setState({
-                articleList:data,
-                ready:true
-            })
+            let articles=that.state.articleList;
+
+            articles.push.apply(articles,data);
+            setTimeout(function(){
+                that.setState({
+                    articleList:articles,
+                    loading:false,
+                    ready:true
+                })
+            },300);
         }).catch(err=>{
             this.setState({
                 nothing:true,
@@ -113,7 +96,7 @@ export class ArticleContainer extends React.Component{
                 {
                     this.state.articleList.map((item,key)=>{
                         return(
-                            <HomeArticleItem article={item} key={key}></HomeArticleItem>
+                            <HomeArticleItem keyword={this.props.keyword} article={item} key={key}></HomeArticleItem>
                         )
                     })
                 }

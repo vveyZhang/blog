@@ -34,7 +34,7 @@ export const routes=<Route path="/" component={App}>
         <Route path="home" component={Home}>
             <Route path="type/:id" component={ArticleType} />
             <Route path="article/:id" component={HomeArticleDetails} />
-            <Route path="search/:keyword" component={ArticleSearch} />
+            <Route path="search" component={ArticleSearch} />
         </Route>
         <Route path="about"  component={About} />
     </Route>

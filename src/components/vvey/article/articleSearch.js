@@ -3,8 +3,7 @@ import {ArticleContainer} from './articleContainer.js';
 export class ArticleSearch extends React.Component{
     render(){
         return(
-            <ArticleContainer keyword={this.props.keyword}></ArticleContainer>
+            <ArticleContainer keyword={this.props.location.query.keyword}></ArticleContainer>
             )
-
     }
 }
