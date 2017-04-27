@@ -11,8 +11,9 @@ export class ArticleContainer extends React.Component{
     };
     componentDidMount(){
         this.getArticles();
+        var that=this;
         $(window).on('scroll',()=>{
-            setTimeout(()=>this.turnPage,20)
+            setTimeout(()=>this.turnPage(),20)
         })
     }
     turnPage=(e)=>{
